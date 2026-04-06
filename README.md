@@ -2,7 +2,7 @@
 
 这是一个用于 Pot-App 的 OCR 插件，基于 OpenAI 兼容的 Chat Completions 图片输入格式，对截图内容进行文本提取。
 
-项目基于模板改造：<https://github.com/pot-app/pot-app-recognize-plugin-openai>
+修改自模板：<https://github.com/pot-app/pot-app-recognize-plugin-openai>
 
 ## 功能概览
 
@@ -10,15 +10,15 @@
 - 支持自定义模型名称
 - 返回纯文本 OCR 结果，适合截图识别场景
 
-## 当前实现
+## 接口说明
 
-插件当前使用 Chat Completions 接口，运行时默认请求地址为：
+插件当前使用 Chat Completions 接口，默认请求地址为：
 
 ```text
 https://api.openai.com/v1/chat/completions
 ```
 
-如果请求地址缺少协议，插件会自动补成 `https://`；如果末尾带有 `/`，会在发送请求前去掉。
+若请求地址缺少协议，插件会自动补全 `https://`；若末尾带有 `/`，会在发送请求前去掉。
 
 ## 配置项
 
