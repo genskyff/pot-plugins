@@ -2,7 +2,7 @@
 
 这是一个用于 Pot-App 的翻译插件，基于 OpenAI 兼容的 Chat Completions 接口，将文本翻译为目标语言。
 
-修改自模板：<https://github.com/pot-app/pot-app-translate-plugin-openai>
+修改自模板：<https://github.com/pot-app/pot-app-translate-plugin-template>
 
 ## 功能概览
 
