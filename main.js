@@ -47,7 +47,7 @@ async function translate(text, _from, to, options) {
     config,
     utils: { tauriFetch: fetch },
   } = options;
-  let { requestUrl, apiKey, model, customModel, temperature, customPrompt } =
+  let { requestUrl, apiKey, model, customModel, customPrompt, temperature } =
     config;
 
   requestUrl = normalizeUrl(requestUrl);
@@ -63,9 +63,8 @@ async function translate(text, _from, to, options) {
     model = customModel?.trim() || defaultModels;
   }
 
-  temperature = parseTemperature(temperature);
-
   customPrompt = buildCustomPrompt(text, to, customPrompt);
+  temperature = parseTemperature(temperature);
 
   const headers = {
     'Content-Type': 'application/json',
