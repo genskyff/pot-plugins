@@ -43,7 +43,6 @@ async function recognize(base64, _lang, options) {
   };
 
   const body = {
-    model,
     messages: [
       {
         role: 'system',
@@ -71,9 +70,10 @@ async function recognize(base64, _lang, options) {
         ],
       },
     ],
+    model,
     max_completion_tokens: 5000,
-    temperature: 0.0,
     reasoning_effort: 'none',
+    temperature: 0.0,
     verbosity: 'low',
   };
 
