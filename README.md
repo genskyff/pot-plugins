@@ -62,7 +62,7 @@ https://api.x.ai/v1/responses
 ## 兼容性说明
 
 - 需要服务端兼容 xAI Responses 接口
-- 返回结果依赖 `output[0].content[0].text`
+- 返回结果取 `output` 中 `type: "message"` 条目的 `content[0].text`
 - 所有配置项都会在请求前自动去掉首尾空白
 
 ## 仓库结构

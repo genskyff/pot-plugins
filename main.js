@@ -112,7 +112,8 @@ Output only the translated text.`,
     throw `Http Status: ${res.status}\n${JSON.stringify(res.data)}`;
   }
 
-  const outputText = res.data.output?.[0]?.content?.[0]?.text?.trim();
+  const message = res.data.output?.find((item) => item.type === 'message');
+  const outputText = message?.content?.[0]?.text?.trim();
   if (!outputText) {
     throw 'No text returned';
   }
