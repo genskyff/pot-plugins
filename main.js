@@ -92,7 +92,7 @@ Output only the translated text.`,
       },
     ],
     model,
-    max_output_tokens: 5000,
+    max_output_tokens: 4096,
     reasoning_effort: 'none',
     temperature,
     verbosity: 'low',
@@ -112,8 +112,9 @@ Output only the translated text.`,
     throw `Http Status: ${res.status}\n${JSON.stringify(res.data)}`;
   }
 
-  const message = res.data.output?.find((item) => item.type === 'message');
-  const outputText = message?.content?.[0]?.text?.trim();
+  const outputText = res.data.output
+    ?.find((item) => item.type === 'message')
+    ?.content?.[0]?.text?.trim();
   if (!outputText) {
     throw 'No text returned';
   }

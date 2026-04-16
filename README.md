@@ -2,8 +2,6 @@
 
 这是一个用于 Pot-App 的翻译插件，基于 xAI 的 Responses 接口，将文本翻译为目标语言。
 
-修改自：<https://github.com/pot-app/pot-app-translate-plugin-template>
-
 ## 功能概览
 
 - 支持 `grok-4.20-non-reasoning`、`grok-4.20-reasoning`
@@ -55,9 +53,9 @@ https://api.x.ai/v1/responses
 
 固定发送以下参数：
 
-- `max_output_tokens`：5000
-- `reasoning_effort`：none
-- `verbosity`：low
+- `max_output_tokens`：`4096`
+- `reasoning_effort`：`none`
+- `verbosity`：`low`
 
 ## 兼容性说明
 
