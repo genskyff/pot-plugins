@@ -72,8 +72,15 @@ Output only the translated text.`,
       },
     ],
     model,
-    max_tokens: 5000,
+    max_tokens: 4096,
     temperature,
+    ...(model === 'deepseek-chat'
+      ? {}
+      : {
+          thinking: {
+            type: 'adaptive',
+          },
+        }),
   };
 
   const res = await fetch(requestUrl, {

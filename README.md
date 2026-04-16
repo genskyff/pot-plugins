@@ -2,8 +2,6 @@
 
 这是一个用于 Pot-App 的翻译插件，使用 DeepSeek 接口，将文本翻译为目标语言。
 
-修改自：<https://github.com/Tzulao55/pot-app-translate-plugin-deepseek>
-
 ## 功能概览
 
 - 支持 `deepseek-chat`、`deepseek-reasoner` 模型
@@ -39,7 +37,7 @@
 
 固定发送以下参数：
 
-- `max_tokens`：5000
+- `max_tokens`：`4096`
 
 ## 兼容性说明
 
