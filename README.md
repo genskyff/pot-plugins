@@ -2,8 +2,6 @@
 
 这是一个用于 Pot-App 的翻译插件，基于 Anthropic Claude Messages 接口，将文本翻译为目标语言。
 
-修改自：<https://github.com/pot-app/pot-app-translate-plugin-template>
-
 ## 功能概览
 
 - 支持 `claude-sonnet-4-6`、`claude-opus-4-6`、`claude-haiku-4-5`
@@ -52,7 +50,7 @@ https://api.anthropic.com/v1/messages
 
 固定发送以下参数：
 
-- `max_tokens`：4096
+- `max_tokens`：`4096`
 - `thinking.type`：`adaptive`（Haiku 模型除外）
 - `output_config.effort`：`low`（Haiku 模型除外）
 
