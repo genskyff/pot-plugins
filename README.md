@@ -2,8 +2,6 @@
 
 这是一个用于 Pot-App 的翻译插件，基于 OpenAI 兼容的 Chat Completions 接口，将文本翻译为目标语言。
 
-修改自：<https://github.com/pot-app/pot-app-translate-plugin-template>
-
 ## 功能概览
 
 - 支持 `GPT-5.4`、`GPT-5.4-mini`、`GPT-5.4-nano`
@@ -55,9 +53,9 @@ https://api.openai.com/v1/chat/completions
 
 固定发送以下参数：
 
-- `max_completion_tokens`：5000
-- `reasoning_effort`：none
-- `verbosity`：low
+- `max_completion_tokens`：`4096`
+- `reasoning_effort`：`none`
+- `verbosity`：`low`
 
 ## 兼容性说明
 
