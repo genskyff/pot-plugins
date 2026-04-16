@@ -2,8 +2,6 @@
 
 这是一个用于 Pot-App 的文字识别插件，基于 OpenAI 兼容的 Chat Completions 图片输入格式，对截图内容进行文本提取。
 
-修改自：<https://github.com/pot-app/pot-app-recognize-plugin-openai>
-
 ## 功能概览
 
 - 支持 `GPT-5.4`、`GPT-5.4-mini`、`GPT-5.4-nano`
@@ -41,10 +39,10 @@ https://api.openai.com/v1/chat/completions
 
 固定发送以下参数：
 
-- `max_completion_tokens`：5000
-- `reasoning_effort`：none
-- `temperature`：0.0
-- `verbosity`：low
+- `max_completion_tokens`：`4096`
+- `reasoning_effort`：`none`
+- `temperature`：`0.0`
+- `verbosity`：`low`
 
 ## 兼容性说明
 

@@ -71,7 +71,7 @@ async function recognize(base64, _lang, options) {
       },
     ],
     model,
-    max_completion_tokens: 5000,
+    max_completion_tokens: 4096,
     reasoning_effort: 'none',
     temperature: 0.0,
     verbosity: 'low',
