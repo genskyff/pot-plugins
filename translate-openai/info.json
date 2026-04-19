@@ -1,9 +1,9 @@
 {
-  "id": "plugin.openai_translate",
+  "id": "plugin.translate_openai",
   "plugin_type": "translate",
   "icon": "icon.svg",
   "display": "OpenAI",
-  "homepage": "https://github.com/genskyff/pot-app-plugins",
+  "homepage": "https://github.com/genskyff/pot-plugins",
   "needs": [
     {
       "key": "requestUrl",

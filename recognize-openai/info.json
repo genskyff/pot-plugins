@@ -1,9 +1,9 @@
 {
-  "id": "plugin.openai_recognize",
+  "id": "plugin.recognize_openai",
   "plugin_type": "recognize",
   "icon": "icon.svg",
   "display": "OpenAI",
-  "homepage": "https://github.com/genskyff/pot-app-plugins",
+  "homepage": "https://github.com/genskyff/pot-plugins",
   "needs": [
     {
       "key": "requestUrl",

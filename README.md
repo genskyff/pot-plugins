@@ -1,4 +1,4 @@
-# Pot App Plugins
+# Pot Plugins
 
 [Pot](https://pot-app.com/) 的 LLM 翻译和文字识别插件集合。
 
@@ -8,18 +8,18 @@
 
 | 插件                        |
 | --------------------------- |
-| `plugin.claude_translate`   |
-| `plugin.openai_translate`   |
-| `plugin.xai_translate`      |
-| `plugin.deepseek_translate` |
+| `plugin.translate_claude`   |
+| `plugin.translate_openai`   |
+| `plugin.translate_xai`      |
+| `plugin.translate_deepseek` |
 
 ### 文字识别插件
 
 | 插件                      |
 | ------------------------- |
-| `plugin.claude_recognize` |
-| `plugin.openai_recognize` |
-| `plugin.xai_recognize`    |
+| `plugin.recognize_claude` |
+| `plugin.recognize_openai` |
+| `plugin.recognize_xai`    |
 
 ## 安装
 

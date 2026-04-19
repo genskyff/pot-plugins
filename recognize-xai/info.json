@@ -1,9 +1,9 @@
 {
-  "id": "plugin.xai_recognize",
+  "id": "plugin.recognize_xai",
   "plugin_type": "recognize",
   "icon": "icon.svg",
   "display": "xAI",
-  "homepage": "https://github.com/genskyff/pot-app-plugins",
+  "homepage": "https://github.com/genskyff/pot-plugins",
   "needs": [
     {
       "key": "requestUrl",

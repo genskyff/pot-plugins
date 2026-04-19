@@ -1,4 +1,4 @@
-# Pot-App DeepSeek 翻译插件
+# Pot 翻译插件 - DeepSeek
 
 使用 DeepSeek 接口，将文本翻译为目标语言。
 

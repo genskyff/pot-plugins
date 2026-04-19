@@ -1,4 +1,4 @@
-# Pot-App xAI 翻译插件
+# Pot 翻译插件 - xAI
 
 基于 xAI 的 Responses 接口，将文本翻译为目标语言。
 

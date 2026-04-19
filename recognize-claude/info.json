@@ -1,9 +1,9 @@
 {
-  "id": "plugin.claude_recognize",
+  "id": "plugin.recognize_claude",
   "plugin_type": "recognize",
   "icon": "icon.svg",
   "display": "Claude",
-  "homepage": "https://github.com/genskyff/pot-app-plugins",
+  "homepage": "https://github.com/genskyff/pot-plugins",
   "needs": [
     {
       "key": "requestUrl",

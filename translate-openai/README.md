@@ -1,4 +1,4 @@
-# Pot-App OpenAI 翻译插件
+# Pot 翻译插件 - OpenAI
 
 基于 OpenAI 兼容的 Chat Completions 接口，将文本翻译为目标语言。
 

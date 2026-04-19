@@ -1,4 +1,4 @@
-# Pot-App Claude 文字识别插件
+# Pot 文字识别插件 - Claude
 
 基于 Anthropic Messages API 的图片输入格式，对截图内容进行文本提取。
 

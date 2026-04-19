@@ -1,4 +1,4 @@
-# Pot-App xAI 文字识别插件
+# Pot 文字识别插件 - xAI
 
 基于 xAI Responses API 的图片输入格式，对截图内容进行文本提取。
 

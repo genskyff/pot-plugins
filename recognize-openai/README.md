@@ -1,4 +1,4 @@
-# Pot-App OpenAI 文字识别插件
+# Pot 文字识别插件 - OpenAI
 
 基于 OpenAI 兼容的 Chat Completions 图片输入格式，对截图内容进行文本提取。
 

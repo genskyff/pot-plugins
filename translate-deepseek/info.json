@@ -1,9 +1,9 @@
 {
-  "id": "plugin.deepseek_translate",
+  "id": "plugin.translate_deepseek",
   "plugin_type": "translate",
   "icon": "icon.svg",
   "display": "DeepSeek",
-  "homepage": "https://github.com/genskyff/pot-app-plugins",
+  "homepage": "https://github.com/genskyff/pot-plugins",
   "needs": [
     {
       "key": "apiKey",
