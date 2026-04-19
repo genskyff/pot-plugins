@@ -3,7 +3,7 @@
   "plugin_type": "recognize",
   "icon": "icon.svg",
   "display": "Claude",
-  "homepage": "https://github.com/genskyff/pot-app-recognize-plugin-claude",
+  "homepage": "https://github.com/genskyff/pot-app-plugins",
   "needs": [
     {
       "key": "requestUrl",
@@ -21,7 +21,7 @@
       "type": "select",
       "options": {
         "claude-sonnet-4-6": "claude-sonnet-4-6",
-        "claude-opus-4-6": "claude-opus-4-6",
+        "claude-opus-4-7": "claude-opus-4-7",
         "claude-haiku-4-5": "claude-haiku-4-5",
         "custom": "自定义"
       }
