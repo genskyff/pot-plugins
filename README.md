@@ -12,6 +12,7 @@
 | `plugin.translate_openai`   |
 | `plugin.translate_xai`      |
 | `plugin.translate_deepseek` |
+| `plugin.translate_zai`      |
 
 ### 文字识别插件
 
@@ -45,7 +46,8 @@
 ├── translate-claude/    # Claude 翻译插件
 ├── translate-deepseek/  # DeepSeek 翻译插件
 ├── translate-openai/    # OpenAI 翻译插件
-└── translate-xai/       # xAI 翻译插件
+├── translate-xai/       # xAI 翻译插件
+└── translate-zai/       # Z.ai 翻译插件
 ```
 
 ## 发布
