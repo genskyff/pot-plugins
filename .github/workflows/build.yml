@@ -1,0 +1,64 @@
+name: Build
+
+on:
+  push:
+    branches: ["main"]
+    tags: ["*"]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        plugin:
+          - recognize-claude
+          - recognize-openai
+          - recognize-xai
+          - translate-claude
+          - translate-deepseek
+          - translate-openai
+          - translate-xai
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Set plugin info
+        working-directory: ${{ matrix.plugin }}
+        run: |
+          echo "NAME=$(jq -r '.id' info.json)" >> "$GITHUB_ENV"
+          echo "ICON=$(jq -r '.icon' info.json)" >> "$GITHUB_ENV"
+
+      - name: Package plugin
+        uses: vimtor/action-zip@v1
+        with:
+          files: ${{ matrix.plugin }}/info.json ${{ matrix.plugin }}/main.js ${{ matrix.plugin }}/${{ env.ICON }}
+          dest: ${{ env.NAME }}.potext
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: ${{ env.NAME }}.potext
+          path: "*.potext"
+          if-no-files-found: error
+
+  release:
+    if: startsWith(github.ref, 'refs/tags')
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Download artifacts
+        uses: actions/download-artifact@v8
+        with:
+          path: artifacts
+          merge-multiple: true
+
+      - name: Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: artifacts/*.potext
