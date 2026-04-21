@@ -8,7 +8,7 @@
 
 - 默认请求地址：`https://api.z.ai/api/paas/v4/chat/completions`
 - 默认模型：`glm-5.1`
-- `temperature` 为空或非数字时默认 `0.1`，超出范围时自动 clamp 到 `0.0` ~ `2.0`
+- `temperature` 为空或非数字时默认 `0.1`，超出范围时自动 clamp 到 `0.0` ~ `1.0`
 
 ## 自定义 Prompt
 

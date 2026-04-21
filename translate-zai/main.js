@@ -15,7 +15,7 @@ function normalizeUrl(requestUrl) {
 
 function parseTemperature(value) {
   const parsed = parseFloat(value?.trim());
-  return Number.isNaN(parsed) ? 0.1 : Math.min(Math.max(parsed, 0.0), 2.0);
+  return Number.isNaN(parsed) ? 0.1 : Math.min(Math.max(parsed, 0.0), 1.0);
 }
 
 function buildCustomPrompt(text, to, customPrompt) {
