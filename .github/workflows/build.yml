@@ -20,6 +20,7 @@ jobs:
           - recognize-xai
           - translate-claude
           - translate-deepseek
+          - translate-kimi
           - translate-openai
           - translate-xai
           - translate-zai

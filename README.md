@@ -12,6 +12,7 @@
 | `plugin.translate_openai`   |
 | `plugin.translate_xai`      |
 | `plugin.translate_deepseek` |
+| `plugin.translate_kimi`     |
 | `plugin.translate_zai`      |
 
 ### 文字识别插件
