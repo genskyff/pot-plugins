@@ -16,6 +16,7 @@ jobs:
       matrix:
         plugin:
           - recognize-claude
+          - recognize-kimi
           - recognize-openai
           - recognize-xai
           - translate-claude

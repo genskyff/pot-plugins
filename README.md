@@ -20,6 +20,7 @@
 | 插件                      |
 | ------------------------- |
 | `plugin.recognize_claude` |
+| `plugin.recognize_kimi`   |
 | `plugin.recognize_openai` |
 | `plugin.recognize_xai`    |
 
