@@ -6,6 +6,11 @@
   "homepage": "https://github.com/genskyff/pot-plugins",
   "needs": [
     {
+      "key": "requestUrl",
+      "display": "请求地址",
+      "type": "input"
+    },
+    {
       "key": "apiKey",
       "display": "API Key",
       "type": "input"
