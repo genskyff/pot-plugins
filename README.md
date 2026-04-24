@@ -6,24 +6,25 @@
 
 ### 翻译插件
 
-| 插件                        |
-| --------------------------- |
-| `plugin.translate_claude`   |
-| `plugin.translate_openai`   |
-| `plugin.translate_xai`      |
-| `plugin.translate_deepseek` |
-| `plugin.translate_kimi`     |
-| `plugin.translate_xiaomimimo` |
-| `plugin.translate_zai`      |
+| 插件 ID                       | 插件名称    |
+| ----------------------------- | ----------- |
+| `plugin.translate_claude`     | Claude      |
+| `plugin.translate_openai`     | OpenAI      |
+| `plugin.translate_xai`        | xAI         |
+| `plugin.translate_deepseek`   | DeepSeek    |
+| `plugin.translate_kimi`       | Kimi        |
+| `plugin.translate_xiaomimimo` | XiaoMi MiMo |
+| `plugin.translate_zai`        | Z.ai        |
 
 ### 文字识别插件
 
-| 插件                      |
-| ------------------------- |
-| `plugin.recognize_claude` |
-| `plugin.recognize_kimi`   |
-| `plugin.recognize_openai` |
-| `plugin.recognize_xai`    |
+| 插件 ID                      | 插件名称  |
+| ---------------------------- | --------- |
+| `plugin.recognize_claude`    | Claude    |
+| `plugin.recognize_kimi`      | Kimi      |
+| `plugin.recognize_openai`    | OpenAI    |
+| `plugin.recognize_paddleocr` | PaddleOCR |
+| `plugin.recognize_xai`       | xAI       |
 
 ## 安装
 

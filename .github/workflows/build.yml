@@ -18,6 +18,7 @@ jobs:
           - recognize-claude
           - recognize-kimi
           - recognize-openai
+          - recognize-paddleocr
           - recognize-xai
           - translate-claude
           - translate-deepseek

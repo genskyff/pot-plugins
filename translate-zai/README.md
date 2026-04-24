@@ -2,24 +2,20 @@
 
 基于 Z.ai（智谱国外站）Chat Completions 接口，将文本翻译为目标语言。
 
-> 通用说明请参阅 [根目录 README](../README.md)。
+## 配置说明
 
-## 接口说明
-
-- 默认请求地址：`https://api.z.ai/api/paas/v4/chat/completions`
-- 默认模型：`glm-5.1`
-- `temperature` 为空或非数字时默认 `0.1`，超出范围时自动 clamp 到 `0.0` ~ `1.0`
-
-## 自定义 Prompt
-
-`customPrompt` 支持 `$to`（目标语言）和 `$text`（待翻译文本）占位符。若缺少占位符，插件会自动在末尾追加对应内容。为空则使用内置默认 Prompt。
+- `请求地址`：默认为 `https://api.z.ai/api/paas/v4/chat/completions`
+- `API Key`：接口访问令牌，**必填**
+- `模型`：默认为 `glm-5.1`
+- `自定义模型`：选择 `自定义` 模型时使用
+- `自定义 Prompt`：支持 `$to`（目标语言）和 `$text`（待翻译文本）占位符；若缺少占位符会自动追加；为空则使用内置默认 Prompt
+- `温度`：为空或非数字时默认 `0.1`，超出范围时自动限制到 `0.0` ~ `1.0`
 
 ## 请求体固定参数
 
 - `max_tokens`：`4096`
 - `thinking.type`：`disabled`
 
-## 兼容性说明
+## 响应解析
 
-- 需要服务端兼容 Z.ai Chat Completions 接口
-- 返回结果依赖 `choices[0].message.content`
+- 取响应 `choices[0].message.content` 作为结果
