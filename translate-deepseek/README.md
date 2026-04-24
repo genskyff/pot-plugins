@@ -6,7 +6,7 @@
 
 ## 接口说明
 
-- 默认模型：`deepseek-chat`
+- 默认模型：`deepseek-v4-flash`
 - `temperature` 为空或非数字时默认 `0.1`，超出范围时自动 clamp 到 `0.0` ~ `2.0`
 
 ## 自定义 Prompt
@@ -16,6 +16,7 @@
 ## 请求体固定参数
 
 - `max_tokens`：`4096`
+- `thinking.type`：`disabled`
 
 ## 兼容性说明
 

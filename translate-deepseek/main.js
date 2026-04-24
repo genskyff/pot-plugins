@@ -38,7 +38,7 @@ async function translate(text, _from, to, options) {
     throw 'API key is required';
   }
 
-  model = model?.trim() || 'deepseek-chat';
+  model = model?.trim() || 'deepseek-v4-flash';
   customPrompt = buildCustomPrompt(text, to, customPrompt);
   temperature = parseTemperature(temperature);
 
@@ -74,13 +74,9 @@ Output only the translated text.`,
     model,
     max_tokens: 4096,
     temperature,
-    ...(model === 'deepseek-chat'
-      ? {}
-      : {
-          thinking: {
-            type: 'adaptive',
-          },
-        }),
+    thinking: {
+      type: 'disabled',
+    },
   };
 
   const res = await fetch(requestUrl, {
