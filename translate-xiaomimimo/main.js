@@ -1,3 +1,18 @@
+function normalizeUrl(requestUrl) {
+  let normalizedUrl =
+    requestUrl?.trim() || 'https://api.xiaomimimo.com/v1/chat/completions';
+
+  if (!/https?:\/\/.+/.test(normalizedUrl)) {
+    normalizedUrl = `https://${normalizedUrl}`;
+  }
+
+  if (normalizedUrl.endsWith('/')) {
+    normalizedUrl = normalizedUrl.slice(0, -1);
+  }
+
+  return normalizedUrl;
+}
+
 function parseTemperature(value) {
   const parsed = parseFloat(value?.trim());
   return Number.isNaN(parsed) ? 0.1 : Math.min(Math.max(parsed, 0.0), 1.5);
@@ -29,16 +44,22 @@ async function translate(text, _from, to, options) {
     config,
     utils: { tauriFetch: fetch },
   } = options;
-  let { apiKey, model, customPrompt, temperature } = config;
+  let { requestUrl, apiKey, model, customModel, customPrompt, temperature } =
+    config;
 
-  const requestUrl = 'https://api.xiaomimimo.com/v1/chat/completions';
+  requestUrl = normalizeUrl(requestUrl);
 
   apiKey = apiKey?.trim();
   if (!apiKey) {
     throw 'API key is required';
   }
 
-  model = model?.trim() || 'mimo-v2-flash';
+  const defaultModels = 'mimo-v2-flash';
+  model = model?.trim() || defaultModels;
+  if (model === 'custom') {
+    model = customModel?.trim() || defaultModels;
+  }
+
   customPrompt = buildCustomPrompt(text, to, customPrompt);
   temperature = parseTemperature(temperature);
 

@@ -16,8 +16,14 @@
       "type": "select",
       "options": {
         "mimo-v2-flash": "mimo-v2-flash",
-        "mimo-v2.5-pro": "mimo-v2.5-pro"
+        "mimo-v2.5-pro": "mimo-v2.5-pro",
+        "custom": "自定义"
       }
+    },
+    {
+      "key": "customModel",
+      "display": "自定义模型",
+      "type": "input"
     },
     {
       "key": "customPrompt",
