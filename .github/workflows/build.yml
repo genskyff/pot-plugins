@@ -24,6 +24,7 @@ jobs:
           - translate-kimi
           - translate-openai
           - translate-xai
+          - translate-xiaomimimo
           - translate-zai
 
     steps:
