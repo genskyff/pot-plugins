@@ -2,12 +2,13 @@
 
 基于 OpenAI 兼容的 Chat Completions 图片输入格式，对截图内容进行文本提取。
 
-> 通用说明请参阅 [根目录 README](../README.md)。
+## 配置说明
 
-## 接口说明
-
-- 默认请求地址：`https://api.openai.com/v1/chat/completions`
-- 默认模型：`gpt-5.4-mini`
+- `请求地址`：默认为 `https://api.openai.com/v1/chat/completions`
+- `API Key`：接口访问令牌，**必填**
+- `模型`：默认为 `gpt-5.4-mini`
+- `自定义模型`：选择 `自定义` 模型时使用
+- `自定义 Prompt`：用于指定 OCR 指令，内容会随截图一起发送；为空则使用内置默认 Prompt
 
 ## 请求体固定参数
 
@@ -16,7 +17,6 @@
 - `temperature`：`0.0`
 - `verbosity`：`low`
 
-## 兼容性说明
+## 响应解析
 
-- 需要服务端兼容 Chat Completions 的图片输入格式
-- 返回结果依赖 `choices[0].message.content`
+- 取响应 `choices[0].message.content` 作为结果
