@@ -1,6 +1,6 @@
 function normalizeUrl(requestUrl) {
   let normalizedUrl =
-    requestUrl?.trim() || 'https://api.moonshot.ai/v1/chat/completions';
+    requestUrl?.trim() || 'https://openrouter.ai/api/v1/chat/completions';
 
   if (!/https?:\/\/.+/.test(normalizedUrl)) {
     normalizedUrl = `https://${normalizedUrl}`;
@@ -27,7 +27,7 @@ async function recognize(base64, _lang, options) {
     throw 'API key is required';
   }
 
-  const defaultModels = 'kimi-k2.6';
+  const defaultModels = 'openai/gpt-5.4-mini';
   model = model?.trim() || defaultModels;
   if (model === 'custom') {
     model = customModel?.trim() || defaultModels;
@@ -60,16 +60,15 @@ async function recognize(base64, _lang, options) {
             type: 'image_url',
             image_url: {
               url: `data:image/png;base64,${base64}`,
+              detail: 'high',
             },
           },
         ],
       },
     ],
     model,
-    max_tokens: 4096,
-    thinking: {
-      type: 'disabled',
-    },
+    max_completion_tokens: 4096,
+    temperature: 0.0,
   };
 
   const res = await fetch(requestUrl, {

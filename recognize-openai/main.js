@@ -46,12 +46,8 @@ async function recognize(base64, _lang, options) {
     messages: [
       {
         role: 'system',
-        content: [
-          {
-            type: 'text',
-            text: 'You are an OCR transcription engine. Extract text from screenshots accurately and output only the recognized text. Preserve reading order and formatting as much as possible. Do not explain, translate, summarize, correct, or add content.',
-          },
-        ],
+        content:
+          'You are an OCR transcription engine. Extract text from screenshots accurately and output only the recognized text. Preserve reading order and formatting as much as possible. Do not explain, translate, summarize, correct, or add content.',
       },
       {
         role: 'user',

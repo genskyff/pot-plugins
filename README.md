@@ -4,6 +4,17 @@
 
 ## 插件列表
 
+### 文字识别插件
+
+| 插件 ID                       | 插件名称   |
+| ----------------------------- | ---------- |
+| `plugin.recognize_claude`     | Claude     |
+| `plugin.recognize_kimi`       | Kimi       |
+| `plugin.recognize_openai`     | OpenAI     |
+| `plugin.recognize_openrouter` | OpenRouter |
+| `plugin.recognize_paddleocr`  | PaddleOCR  |
+| `plugin.recognize_xai`        | xAI        |
+
 ### 翻译插件
 
 | 插件 ID                       | 插件名称    |
@@ -16,16 +27,6 @@
 | `plugin.translate_xai`        | xAI         |
 | `plugin.translate_xiaomimimo` | XiaoMi MiMo |
 | `plugin.translate_zai`        | Z.ai        |
-
-### 文字识别插件
-
-| 插件 ID                      | 插件名称  |
-| ---------------------------- | --------- |
-| `plugin.recognize_claude`    | Claude    |
-| `plugin.recognize_kimi`      | Kimi      |
-| `plugin.recognize_openai`    | OpenAI    |
-| `plugin.recognize_paddleocr` | PaddleOCR |
-| `plugin.recognize_xai`       | xAI       |
 
 ## 安装
 

@@ -1,0 +1,73 @@
+{
+  "id": "plugin.recognize_openrouter",
+  "plugin_type": "recognize",
+  "icon": "icon.svg",
+  "display": "OpenRouter",
+  "homepage": "https://github.com/genskyff/pot-plugins",
+  "needs": [
+    {
+      "key": "requestUrl",
+      "display": "请求地址",
+      "type": "input"
+    },
+    {
+      "key": "apiKey",
+      "display": "API Key",
+      "type": "input"
+    },
+    {
+      "key": "model",
+      "display": "模型",
+      "type": "select",
+      "options": {
+        "openai/gpt-5.4-mini": "openai/gpt-5.4-mini",
+        "anthropic/claude-sonnet-4.6": "anthropic/claude-sonnet-4.6",
+        "google/gemini-3-flash-preview": "google/gemini-3-flash-preview",
+        "custom": "自定义"
+      }
+    },
+    {
+      "key": "customModel",
+      "display": "自定义模型",
+      "type": "input"
+    },
+    {
+      "key": "customPrompt",
+      "display": "自定义 Prompt",
+      "type": "input"
+    }
+  ],
+  "language": {
+    "auto": "Auto",
+    "zh_cn": "Simplified Chinese",
+    "zh_tw": "Traditional Chinese",
+    "yue": "Cantonese",
+    "ja": "Japanese",
+    "en": "English",
+    "ko": "Korean",
+    "fr": "French",
+    "es": "Spanish",
+    "ru": "Russian",
+    "de": "German",
+    "it": "Italian",
+    "tr": "Turkish",
+    "pt_pt": "Portuguese",
+    "pt_br": "Brazilian Portuguese",
+    "vi": "Vietnamese",
+    "id": "Indonesian",
+    "th": "Thai",
+    "ms": "Malay",
+    "ar": "Arabic",
+    "hi": "Hindi",
+    "mn_mo": "Mongolian",
+    "mn_cy": "Mongolian(Cyrillic)",
+    "km": "Khmer",
+    "nb_no": "Norwegian Bokmål",
+    "nn_no": "Norwegian Nynorsk",
+    "fa": "Persian",
+    "sv": "Swedish",
+    "pl": "Polish",
+    "nl": "Dutch",
+    "uk": "Ukrainian"
+  }
+}
