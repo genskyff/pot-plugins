@@ -9,10 +9,11 @@
 | 插件 ID                       | 插件名称    |
 | ----------------------------- | ----------- |
 | `plugin.translate_claude`     | Claude      |
-| `plugin.translate_openai`     | OpenAI      |
-| `plugin.translate_xai`        | xAI         |
 | `plugin.translate_deepseek`   | DeepSeek    |
 | `plugin.translate_kimi`       | Kimi        |
+| `plugin.translate_openai`     | OpenAI      |
+| `plugin.translate_openrouter` | OpenRouter  |
+| `plugin.translate_xai`        | xAI         |
 | `plugin.translate_xiaomimimo` | XiaoMi MiMo |
 | `plugin.translate_zai`        | Z.ai        |
 

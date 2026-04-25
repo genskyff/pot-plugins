@@ -24,6 +24,7 @@ jobs:
           - translate-deepseek
           - translate-kimi
           - translate-openai
+          - translate-openrouter
           - translate-xai
           - translate-xiaomimimo
           - translate-zai
