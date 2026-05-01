@@ -1,6 +1,6 @@
 # Pot 翻译插件 - Claude
 
-基于 Anthropic Claude Messages 接口，将文本翻译为目标语言。
+基于 Anthropic 的 [Messages](https://platform.claude.com/docs/en/api/messages/create) 接口，将文本翻译为目标语言。
 
 ## 配置说明
 
@@ -13,8 +13,7 @@
 ## 请求体固定参数
 
 - `max_tokens`：`4096`
-- `thinking.type`：`adaptive`（Haiku 模型除外）
-- `output_config.effort`：`low`（Haiku 模型除外）
+- `thinking.type`：`disabled`
 
 ## 响应解析
 

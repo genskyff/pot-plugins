@@ -1,6 +1,6 @@
 # Pot 翻译插件 - XiaoMi MiMo
 
-基于 XiaoMi MiMo Chat Completions 接口，将文本翻译为目标语言。
+基于 XiaoMi MiMo 的 [Chat Completions](https://platform.xiaomimimo.com/docs/zh-CN/api/chat/openai-api) 接口，将文本翻译为目标语言。
 
 ## 配置说明
 
@@ -9,7 +9,7 @@
 - `模型`：默认为 `mimo-v2-flash`
 - `自定义模型`：选择 `自定义` 模型时使用
 - `自定义 Prompt`：支持 `$to`（目标语言）和 `$text`（待翻译文本）占位符；若缺少占位符会自动追加；为空则使用内置默认 Prompt
-- `温度`：为空或非数字时默认 `0.1`，超出范围时自动限制到 `0.0` ~ `1.5`
+- `温度`：为空或非数字时默认 `0.2`，超出范围时自动限制到 `0.0` ~ `1.5`
 
 ## 请求体固定参数
 

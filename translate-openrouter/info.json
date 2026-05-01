@@ -22,9 +22,10 @@
       "options": {
         "openai/gpt-5.4-mini": "openai/gpt-5.4-mini",
         "anthropic/claude-sonnet-4.6": "anthropic/claude-sonnet-4.6",
-        "google/gemini-3-flash-preview": "google/gemini-3-flash-preview",
+        "google/gemini-3.1-flash-lite-preview": "google/gemini-3.1-flash-lite-preview",
         "deepseek/deepseek-v4-flash": "deepseek/deepseek-v4-flash",
         "xiaomi/mimo-v2-flash": "xiaomi/mimo-v2-flash",
+        "qwen/qwen3.6-plus": "qwen/qwen3.6-plus",
         "custom": "自定义"
       }
     },
