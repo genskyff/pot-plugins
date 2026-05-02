@@ -12,7 +12,7 @@
     },
     {
       "key": "apiKey",
-      "display": "API Key",
+      "display": "API Key*",
       "type": "input"
     },
     {
