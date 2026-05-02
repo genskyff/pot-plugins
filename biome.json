@@ -9,7 +9,7 @@
   "javascript": {
     "formatter": {
       "quoteStyle": "single",
-      "lineWidth": 100
+      "lineWidth": 120
     }
   },
   "linter": {

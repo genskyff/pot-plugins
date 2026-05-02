@@ -1,6 +1,6 @@
 # Pot 文字识别插件 - Kimi
 
-基于 Kimi Chat Completions 图片输入格式，对截图内容进行文本提取。
+基于 Kimi 的 [Chat Completions](https://platform.kimi.ai/docs/api/chat) 接口，对截图内容进行文本提取。
 
 ## 配置说明
 
@@ -12,7 +12,7 @@
 
 ## 请求体固定参数
 
-- `max_tokens`：`4096`
+- `max_completion_tokens`：`4096`
 - `thinking.type`：`disabled`
 
 ## 响应解析

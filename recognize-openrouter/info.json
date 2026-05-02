@@ -12,7 +12,7 @@
     },
     {
       "key": "apiKey",
-      "display": "API Key",
+      "display": "API Key*",
       "type": "input"
     },
     {
@@ -22,7 +22,7 @@
       "options": {
         "openai/gpt-5.4-mini": "openai/gpt-5.4-mini",
         "anthropic/claude-sonnet-4.6": "anthropic/claude-sonnet-4.6",
-        "google/gemini-3-flash-preview": "google/gemini-3-flash-preview",
+        "google/gemini-3.1-flash-lite-preview": "google/gemini-3.1-flash-lite-preview",
         "custom": "自定义"
       }
     },

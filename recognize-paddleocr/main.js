@@ -1,19 +1,22 @@
 function normalizeUrl(requestUrl) {
   let normalizedUrl = requestUrl?.trim();
-
   if (!normalizedUrl) {
     throw 'Request URL is required';
   }
 
-  if (!/https?:\/\/.+/.test(normalizedUrl)) {
-    normalizedUrl = `https://${normalizedUrl}`;
+  const HTTP_PROTOCOL_RE = /^https?:\/\//i;
+  const LOCALHOST_RE = /^localhost(?::\d+)?$/i;
+  const LOCAL_IP_RE = /^127(?:\.\d{1,3}){3}(?::\d+)?$/;
+
+  if (!HTTP_PROTOCOL_RE.test(normalizedUrl)) {
+    const host = normalizedUrl.split(/[/?#]/)[0];
+
+    const isLocalhost = LOCALHOST_RE.test(host) || LOCAL_IP_RE.test(host);
+
+    normalizedUrl = `${isLocalhost ? 'http' : 'https'}://${normalizedUrl}`;
   }
 
-  if (normalizedUrl.endsWith('/')) {
-    normalizedUrl = normalizedUrl.slice(0, -1);
-  }
-
-  return normalizedUrl;
+  return normalizedUrl.replace(/\/+$/, '');
 }
 
 async function recognize(base64, _lang, options) {
@@ -21,18 +24,18 @@ async function recognize(base64, _lang, options) {
     config,
     utils: { tauriFetch: fetch },
   } = options;
-  let { requestUrl, apiKey } = config;
+  let { requestUrl, apiToken } = config;
 
   requestUrl = normalizeUrl(requestUrl);
 
-  apiKey = apiKey?.trim();
-  if (!apiKey) {
-    throw 'API key is required';
+  apiToken = apiToken?.trim();
+  if (!apiToken) {
+    throw 'API Token is required';
   }
 
   const headers = {
     'Content-Type': 'application/json',
-    Authorization: `token ${apiKey}`,
+    Authorization: `token ${apiToken}`,
   };
 
   const body = {
@@ -60,8 +63,7 @@ async function recognize(base64, _lang, options) {
     throw `Http Status: ${res.status}\n${JSON.stringify(res.data)}`;
   }
 
-  const outputText =
-    res.data.result?.layoutParsingResults?.[0]?.markdown?.text?.trim();
+  const outputText = res.data.result?.layoutParsingResults?.[0]?.markdown?.text?.trim();
   if (!outputText) {
     throw 'No text returned';
   }

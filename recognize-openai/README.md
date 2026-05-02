@@ -1,6 +1,6 @@
 # Pot 文字识别插件 - OpenAI
 
-基于 OpenAI 兼容的 Chat Completions 图片输入格式，对截图内容进行文本提取。
+基于 OpenAI 的 [Chat Completions](https://developers.openai.com/api/reference/resources/chat/subresources/completions/methods/create) 接口，对截图内容进行文本提取。
 
 ## 配置说明
 

@@ -12,7 +12,7 @@
     },
     {
       "key": "apiKey",
-      "display": "API Key",
+      "display": "API Key*",
       "type": "input"
     },
     {
@@ -22,7 +22,6 @@
       "options": {
         "gpt-5.4-mini": "gpt-5.4-mini",
         "gpt-5.4-nano": "gpt-5.4-nano",
-        "gpt-5.4": "gpt-5.4",
         "custom": "自定义"
       }
     },

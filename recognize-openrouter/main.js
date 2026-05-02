@@ -1,16 +1,19 @@
 function normalizeUrl(requestUrl) {
-  let normalizedUrl =
-    requestUrl?.trim() || 'https://openrouter.ai/api/v1/chat/completions';
+  let normalizedUrl = requestUrl?.trim() || 'https://openrouter.ai/api/v1/chat/completions';
 
-  if (!/https?:\/\/.+/.test(normalizedUrl)) {
-    normalizedUrl = `https://${normalizedUrl}`;
+  const HTTP_PROTOCOL_RE = /^https?:\/\//i;
+  const LOCALHOST_RE = /^localhost(?::\d+)?$/i;
+  const LOCAL_IP_RE = /^127(?:\.\d{1,3}){3}(?::\d+)?$/;
+
+  if (!HTTP_PROTOCOL_RE.test(normalizedUrl)) {
+    const host = normalizedUrl.split(/[/?#]/)[0];
+
+    const isLocalhost = LOCALHOST_RE.test(host) || LOCAL_IP_RE.test(host);
+
+    normalizedUrl = `${isLocalhost ? 'http' : 'https'}://${normalizedUrl}`;
   }
 
-  if (normalizedUrl.endsWith('/')) {
-    normalizedUrl = normalizedUrl.slice(0, -1);
-  }
-
-  return normalizedUrl;
+  return normalizedUrl.replace(/\/+$/, '');
 }
 
 async function recognize(base64, _lang, options) {
@@ -27,15 +30,13 @@ async function recognize(base64, _lang, options) {
     throw 'API key is required';
   }
 
-  const defaultModels = 'openai/gpt-5.4-mini';
-  model = model?.trim() || defaultModels;
+  const DEFAULT_MODEL = 'openai/gpt-5.4-mini';
+  model = model?.trim() || DEFAULT_MODEL;
   if (model === 'custom') {
-    model = customModel?.trim() || defaultModels;
+    model = customModel?.trim() || DEFAULT_MODEL;
   }
 
-  customPrompt =
-    customPrompt?.trim() ||
-    'Perform OCR on this screenshot and return only the extracted text.';
+  customPrompt = customPrompt?.trim() || 'OCR this image.';
 
   const headers = {
     'Content-Type': 'application/json',
@@ -46,8 +47,33 @@ async function recognize(base64, _lang, options) {
     messages: [
       {
         role: 'system',
-        content:
-          'You are an OCR transcription engine. Extract text from screenshots accurately and output only the recognized text. Preserve reading order and formatting as much as possible. Do not explain, translate, summarize, correct, or add content.',
+        content: `You are a strict OCR transcription engine.
+
+Task:
+Transcribe all visible text from the provided image.
+
+Output rules:
+- Return only the extracted plain text.
+- Do not explain, comment, translate, summarize, correct, rewrite, or add anything.
+- Do not wrap the output in Markdown, code fences, labels, quotation marks, or any extra formatting.
+- Do not add labels such as "OCR result:" or "Extracted text:".
+- If no text is visible, return an empty string.
+
+Accuracy rules:
+- Transcribe exactly what is visible.
+- Preserve typos, unusual spacing, punctuation, symbols, numbers, capitalization, and mixed languages.
+- Do not infer, guess, complete, normalize, or autocorrect text.
+- For unreadable characters or words, use [?].
+- For partially readable text, keep readable characters and replace only unreadable parts with [?].
+
+Formatting rules:
+- Preserve the natural visual reading order as much as possible.
+- For multi-column layouts, transcribe each column top to bottom, left to right, unless the visual reading order clearly indicates otherwise.
+- Preserve line breaks, paragraph breaks, and indentation.
+- Preserve meaningful spacing between elements, such as label-value pairs and aligned columns.
+- For tables, forms, receipts, invoices, menus, or lists, preserve row and column alignment using spaces or tabs where possible.
+- For code, logs, or terminal output, preserve indentation and line breaks exactly.
+- Include all visible text: UI elements, watermarks, headers, footers, timestamps, usernames, prices, units, captions, buttons, icons with text, and labels.`,
       },
       {
         role: 'user',
@@ -69,6 +95,9 @@ async function recognize(base64, _lang, options) {
     model,
     max_completion_tokens: 4096,
     temperature: 0.0,
+    reasoning: {
+      effort: 'none',
+    },
   };
 
   const res = await fetch(requestUrl, {

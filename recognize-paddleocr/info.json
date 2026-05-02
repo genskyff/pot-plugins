@@ -7,12 +7,12 @@
   "needs": [
     {
       "key": "requestUrl",
-      "display": "请求地址",
+      "display": "请求地址*",
       "type": "input"
     },
     {
-      "key": "apiKey",
-      "display": "API Token",
+      "key": "apiToken",
+      "display": "API Token*",
       "type": "input"
     },
     {
