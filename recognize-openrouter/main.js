@@ -16,12 +16,61 @@ function normalizeUrl(requestUrl) {
   return normalizedUrl.replace(/\/+$/, '');
 }
 
+function isPlainObject(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function deepMerge(target, ...sources) {
+  const result = { ...target };
+
+  for (const source of sources) {
+    if (!isPlainObject(source)) {
+      continue;
+    }
+
+    for (const [key, value] of Object.entries(source)) {
+      if (value === null) {
+        delete result[key];
+      } else if (isPlainObject(value) && isPlainObject(result[key])) {
+        result[key] = deepMerge(result[key], value);
+      } else if (isPlainObject(value)) {
+        result[key] = deepMerge({}, value);
+      } else {
+        result[key] = value;
+      }
+    }
+  }
+
+  return result;
+}
+
+function parseExtraBody(value) {
+  const text = value?.trim();
+  if (!text) {
+    return {};
+  }
+
+  let parsed;
+  try {
+    parsed = JSON.parse(text);
+  } catch (error) {
+    throw `Invalid custom request body JSON: ${error.message}`;
+  }
+
+  if (!isPlainObject(parsed)) {
+    throw 'Invalid custom request body JSON: must be a JSON object';
+  }
+
+  return parsed;
+}
+
+// biome-ignore lint/correctness/noUnusedVariables: _
 async function recognize(base64, _lang, options) {
   const {
     config,
     utils: { tauriFetch: fetch },
   } = options;
-  let { requestUrl, apiKey, model, customModel, customPrompt } = config;
+  let { requestUrl, apiKey, model, customModel, customPrompt, extraBody } = config;
 
   requestUrl = normalizeUrl(requestUrl);
 
@@ -37,13 +86,14 @@ async function recognize(base64, _lang, options) {
   }
 
   customPrompt = customPrompt?.trim() || 'OCR this image.';
+  extraBody = parseExtraBody(extraBody);
 
   const headers = {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${apiKey}`,
   };
 
-  const body = {
+  const defaultBody = {
     messages: [
       {
         role: 'system',
@@ -99,6 +149,8 @@ Formatting rules:
       effort: 'none',
     },
   };
+
+  const body = deepMerge(defaultBody, extraBody);
 
   const res = await fetch(requestUrl, {
     method: 'POST',

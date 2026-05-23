@@ -39,6 +39,11 @@
       "key": "temperature",
       "display": "温度",
       "type": "input"
+    },
+    {
+      "key": "extraBody",
+      "display": "自定义请求体（JSON）",
+      "type": "input"
     }
   ],
   "language": {

@@ -34,6 +34,11 @@
       "key": "customPrompt",
       "display": "自定义 Prompt",
       "type": "input"
+    },
+    {
+      "key": "extraBody",
+      "display": "自定义请求体（JSON）",
+      "type": "input"
     }
   ],
   "language": {

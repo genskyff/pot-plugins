@@ -22,6 +22,11 @@
       "options": {
         "PaddleOCR-VL-1.5": "PaddleOCR-VL-1.5"
       }
+    },
+    {
+      "key": "extraBody",
+      "display": "自定义请求体（JSON）",
+      "type": "input"
     }
   ],
   "language": {

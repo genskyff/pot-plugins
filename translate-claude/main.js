@@ -16,6 +16,54 @@ function normalizeUrl(requestUrl) {
   return normalizedUrl.replace(/\/+$/, '');
 }
 
+function isPlainObject(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function deepMerge(target, ...sources) {
+  const result = { ...target };
+
+  for (const source of sources) {
+    if (!isPlainObject(source)) {
+      continue;
+    }
+
+    for (const [key, value] of Object.entries(source)) {
+      if (value === null) {
+        delete result[key];
+      } else if (isPlainObject(value) && isPlainObject(result[key])) {
+        result[key] = deepMerge(result[key], value);
+      } else if (isPlainObject(value)) {
+        result[key] = deepMerge({}, value);
+      } else {
+        result[key] = value;
+      }
+    }
+  }
+
+  return result;
+}
+
+function parseExtraBody(value) {
+  const text = value?.trim();
+  if (!text) {
+    return {};
+  }
+
+  let parsed;
+  try {
+    parsed = JSON.parse(text);
+  } catch (error) {
+    throw `Invalid custom request body JSON: ${error.message}`;
+  }
+
+  if (!isPlainObject(parsed)) {
+    throw 'Invalid custom request body JSON: must be a JSON object';
+  }
+
+  return parsed;
+}
+
 function buildCustomPrompt(text, to, customPrompt) {
   let prompt = customPrompt?.trim();
 
@@ -41,12 +89,13 @@ ${text}
 </source_text>`;
 }
 
+// biome-ignore lint/correctness/noUnusedVariables: _
 async function translate(text, _from, to, options) {
   const {
     config,
     utils: { tauriFetch: fetch },
   } = options;
-  let { requestUrl, apiKey, model, customModel, customPrompt } = config;
+  let { requestUrl, apiKey, model, customModel, customPrompt, extraBody } = config;
 
   requestUrl = normalizeUrl(requestUrl);
 
@@ -62,6 +111,7 @@ async function translate(text, _from, to, options) {
   }
 
   customPrompt = buildCustomPrompt(text, to, customPrompt);
+  extraBody = parseExtraBody(extraBody);
 
   const headers = {
     'Content-Type': 'application/json',
@@ -69,7 +119,7 @@ async function translate(text, _from, to, options) {
     'X-Api-Key': apiKey,
   };
 
-  const body = {
+  const defaultBody = {
     system: `You are an expert bilingual translator and localization specialist.
 
 Your only task is to translate the source text into the requested target language.
@@ -101,6 +151,8 @@ Priority order:
       type: 'disabled',
     },
   };
+
+  const body = deepMerge(defaultBody, extraBody);
 
   const res = await fetch(requestUrl, {
     method: 'POST',
