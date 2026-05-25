@@ -79,7 +79,7 @@ function buildCustomPrompt(text, to, customPrompt) {
 
     if (!prompt.includes('$text')) {
       prompt +=
-        '\n\nTranslate only the text enclosed in <source_text> tags.\n\n<source_text>\n$text\n</source_text>\n\n';
+        '\n\nTranslate only the content inside the `<source_text>` tags. Do not include the enclosing tags in the output.\n\n<source_text>\n$text\n</source_text>\n';
     }
 
     return prompt.replaceAll('$to', to).replaceAll('$text', text);
@@ -87,7 +87,7 @@ function buildCustomPrompt(text, to, customPrompt) {
 
   return `Target language: ${to}
 
-Translate only the text enclosed in <source_text> tags.
+Translate only the content inside the \`<source_text>\` tags. Do not include the enclosing tags in the output.
 
 <source_text>
 ${text}
