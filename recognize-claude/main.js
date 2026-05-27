@@ -142,7 +142,7 @@ Formatting rules:
       },
     ],
     model,
-    max_tokens: 4096,
+    max_tokens: 8192,
     thinking: {
       type: 'disabled',
     },

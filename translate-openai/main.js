@@ -164,7 +164,7 @@ Priority order:
       },
     ],
     model,
-    max_completion_tokens: 4096,
+    max_completion_tokens: 8192,
     reasoning_effort: 'none',
     temperature,
     verbosity: 'low',

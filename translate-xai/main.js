@@ -154,7 +154,7 @@ Priority order:
       },
     ],
     model,
-    max_completion_tokens: 4096,
+    max_completion_tokens: 8192,
     temperature,
   };
 

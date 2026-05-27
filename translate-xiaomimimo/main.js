@@ -109,7 +109,7 @@ async function translate(text, _from, to, options) {
     throw 'API key is required';
   }
 
-  const DEFAULT_MODEL = 'mimo-v2-flash';
+  const DEFAULT_MODEL = 'mimo-v2.5';
   model = model?.trim() || DEFAULT_MODEL;
   if (model === 'custom') {
     model = customModel?.trim() || DEFAULT_MODEL;
@@ -154,7 +154,7 @@ Priority order:
       },
     ],
     model,
-    max_completion_tokens: 4096,
+    max_completion_tokens: 8192,
     temperature,
     thinking: {
       type: 'disabled',

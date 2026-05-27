@@ -143,7 +143,7 @@ Formatting rules:
       },
     ],
     model,
-    max_completion_tokens: 4096,
+    max_completion_tokens: 8192,
     temperature: 0.0,
     reasoning: {
       effort: 'none',
