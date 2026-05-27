@@ -20,8 +20,8 @@
       "display": "模型",
       "type": "select",
       "options": {
-        "moonshot-v1-auto": "moonshot-v1-auto",
         "kimi-k2.6": "kimi-k2.6",
+        "moonshot-v1-auto": "moonshot-v1-auto",
         "custom": "自定义"
       }
     },

@@ -1,4 +1,4 @@
-# Pot 文字识别插件 -  OpenRouter
+# Pot 文字识别插件 - OpenRouter
 
 基于 OpenRouter 的 [Chat Completions](https://openrouter.ai/docs/api/api-reference/chat/send-chat-completion-request) 接口，对截图内容进行文本提取。
 
@@ -13,7 +13,7 @@
 
 ## 请求体固定参数
 
-- `max_completion_tokens`：`4096`
+- `max_completion_tokens`：`8192`
 - `reasoning.effort`：`none`
 - `temperature`：`0.0`
 
