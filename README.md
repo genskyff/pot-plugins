@@ -12,7 +12,6 @@
 | `plugin.recognize_kimi`       | Kimi       |
 | `plugin.recognize_openai`     | OpenAI     |
 | `plugin.recognize_openrouter` | OpenRouter |
-| `plugin.recognize_paddleocr`  | PaddleOCR  |
 | `plugin.recognize_xai`        | xAI        |
 
 ### 翻译插件
