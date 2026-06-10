@@ -25,7 +25,7 @@
         "google/gemini-3.1-flash-lite": "google/gemini-3.1-flash-lite",
         "deepseek/deepseek-v4-flash": "deepseek/deepseek-v4-flash",
         "xiaomi/mimo-v2.5": "xiaomi/mimo-v2.5",
-        "qwen/qwen3.6-plus": "qwen/qwen3.6-plus",
+        "qwen/qwen3.7-plus": "qwen/qwen3.7-plus",
         "custom": "自定义"
       }
     },

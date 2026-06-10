@@ -143,9 +143,13 @@ Formatting rules:
     ],
     model,
     max_tokens: 8192,
-    thinking: {
-      type: 'disabled',
-    },
+    ...(model.toLowerCase().includes('fable')
+      ? {}
+      : {
+          thinking: {
+            type: 'disabled',
+          },
+        }),
   };
 
   const body = deepMerge(defaultBody, extraBody);
