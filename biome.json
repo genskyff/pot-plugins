@@ -1,5 +1,5 @@
 {
-  "$schema": "https://biomejs.dev/schemas/2.4.16/schema.json",
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
   "files": {
     "includes": ["**/*.js"]
   },
@@ -8,14 +8,17 @@
   },
   "javascript": {
     "formatter": {
-      "quoteStyle": "single",
-      "lineWidth": 120
+      "lineWidth": 120,
+      "quoteStyle": "single"
     }
   },
   "linter": {
+    "domains": {
+      "types": "recommended"
+    },
     "enabled": true,
     "rules": {
-      "recommended": true
+      "preset": "recommended"
     }
   },
   "vcs": {
