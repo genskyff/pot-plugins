@@ -8,7 +8,7 @@
   },
   "javascript": {
     "formatter": {
-      "lineWidth": 120,
+      "lineWidth": 100,
       "quoteStyle": "single"
     }
   },
