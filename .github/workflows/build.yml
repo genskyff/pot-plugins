@@ -25,6 +25,7 @@ jobs:
           - translate-claude
           - translate-deepseek
           - translate-kimi
+          - translate-longcat
           - translate-openai
           - translate-openrouter
           - translate-xai
