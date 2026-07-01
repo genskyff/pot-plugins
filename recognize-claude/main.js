@@ -79,7 +79,7 @@ async function recognize(base64, _lang, options) {
     throw 'API key is required';
   }
 
-  const DEFAULT_MODEL = 'claude-sonnet-4-6';
+  const DEFAULT_MODEL = 'claude-sonnet-5';
   model = model?.trim() || DEFAULT_MODEL;
   if (model === 'custom') {
     model = customModel?.trim() || DEFAULT_MODEL;
