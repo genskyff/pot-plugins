@@ -21,7 +21,7 @@
       "type": "select",
       "options": {
         "openai/gpt-5.4-mini": "openai/gpt-5.4-mini",
-        "anthropic/claude-sonnet-4.6": "anthropic/claude-sonnet-4.6",
+        "anthropic/claude-sonnet-5": "anthropic/claude-sonnet-5",
         "google/gemini-3.1-flash-lite": "google/gemini-3.1-flash-lite",
         "custom": "自定义"
       }
