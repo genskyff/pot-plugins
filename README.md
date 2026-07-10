@@ -1,6 +1,6 @@
 # Pot Plugins
 
-[Pot](https://pot-app.com/) 的 LLM 翻译和文字识别插件集合。
+[Pot](https://github.com/pot-app/pot-desktop) 的 LLM 翻译和文字识别插件集合。
 
 ## 插件列表
 
