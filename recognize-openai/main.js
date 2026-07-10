@@ -79,7 +79,7 @@ async function recognize(base64, _lang, options) {
     throw 'API key is required';
   }
 
-  const DEFAULT_MODEL = 'gpt-5.4-mini';
+  const DEFAULT_MODEL = 'gpt-5.6-terra';
   model = model?.trim() || DEFAULT_MODEL;
   if (model === 'custom') {
     model = customModel?.trim() || DEFAULT_MODEL;

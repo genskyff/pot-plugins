@@ -109,7 +109,7 @@ async function translate(text, _from, to, options) {
     throw 'API key is required';
   }
 
-  const DEFAULT_MODEL = 'openai/gpt-5.4-mini';
+  const DEFAULT_MODEL = 'openai/gpt-5.6-terra';
   model = model?.trim() || DEFAULT_MODEL;
   if (model === 'custom') {
     model = customModel?.trim() || DEFAULT_MODEL;
