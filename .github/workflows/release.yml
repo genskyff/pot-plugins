@@ -1,11 +1,11 @@
-name: Build
+name: Release
+
+run-name: Release ${{ github.ref_name }}
 
 on:
   push:
-    branches: ["main"]
-    tags: ["*"]
-  pull_request:
-    branches: ["*"]
+    tags:
+      - "*"
 
 permissions:
   contents: write
@@ -34,7 +34,7 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: Setup Mise
         uses: jdx/mise-action@v4
