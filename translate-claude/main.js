@@ -89,7 +89,7 @@ ${text}
 </source_text>`;
 }
 
-// biome-ignore lint/correctness/noUnusedVariables: _
+// oxlint-disable-next-line no-unused-vars
 async function translate(text, _from, to, options) {
   const {
     config,

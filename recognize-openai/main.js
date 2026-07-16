@@ -64,7 +64,7 @@ function parseExtraBody(value) {
   return parsed;
 }
 
-// biome-ignore lint/correctness/noUnusedVariables: _
+// oxlint-disable-next-line no-unused-vars
 async function recognize(base64, _lang, options) {
   const {
     config,

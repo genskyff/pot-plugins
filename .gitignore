@@ -1,3 +1,13 @@
+# Local
+.DS_Store
+*.local
+*.log*
 *.http
 *.potext
+
+# Dist
+.pnpm-store
+node_modules
+
+# IDE
 .idea
