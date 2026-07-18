@@ -20,8 +20,8 @@
       "display": "模型",
       "type": "select",
       "options": {
-        "kimi-k3": "kimi-k3",
         "kimi-k2.6": "kimi-k2.6",
+        "kimi-k3": "kimi-k3",
         "custom": "自定义"
       }
     },
