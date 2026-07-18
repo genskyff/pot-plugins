@@ -20,11 +20,10 @@
       "display": "模型",
       "type": "select",
       "options": {
-        "openai/gpt-5.6-terra": "openai/gpt-5.6-terra",
+        "openai/gpt-5.6-luna": "openai/gpt-5.6-luna",
         "anthropic/claude-sonnet-5": "anthropic/claude-sonnet-5",
         "x-ai/grok-4.5": "x-ai/grok-4.5",
         "google/gemini-3.5-flash": "google/gemini-3.5-flash",
-        "moonshotai/kimi-k3": "moonshotai/kimi-k3",
         "custom": "自定义"
       }
     },
