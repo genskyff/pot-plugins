@@ -16,11 +16,6 @@ function normalizeUrl(requestUrl) {
   return normalizedUrl.replace(/\/+$/, '');
 }
 
-function parseTemperature(value) {
-  const parsed = parseFloat(value?.trim());
-  return Number.isNaN(parsed) ? 0.2 : Math.min(Math.max(parsed, 0.0), 1.0);
-}
-
 function isPlainObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
 }
@@ -100,7 +95,7 @@ async function translate(text, _from, to, options) {
     config,
     utils: { tauriFetch: fetch },
   } = options;
-  let { requestUrl, apiKey, model, customModel, customPrompt, temperature, extraBody } = config;
+  let { requestUrl, apiKey, model, customModel, customPrompt, extraBody } = config;
 
   requestUrl = normalizeUrl(requestUrl);
 
@@ -109,14 +104,13 @@ async function translate(text, _from, to, options) {
     throw 'API key is required';
   }
 
-  const DEFAULT_MODEL = 'kimi-k2.6';
+  const DEFAULT_MODEL = 'kimi-k3';
   model = model?.trim() || DEFAULT_MODEL;
   if (model === 'custom') {
     model = customModel?.trim() || DEFAULT_MODEL;
   }
 
   customPrompt = buildCustomPrompt(text, to, customPrompt);
-  temperature = parseTemperature(temperature);
   extraBody = parseExtraBody(extraBody);
 
   const headers = {
@@ -158,7 +152,6 @@ Priority order:
     thinking: {
       type: 'disabled',
     },
-    ...(model.toLowerCase().includes('moonshot-v1') ? { temperature } : {}),
   };
 
   const body = deepMerge(defaultBody, extraBody);

@@ -20,8 +20,8 @@
       "display": "模型",
       "type": "select",
       "options": {
+        "kimi-k3": "kimi-k3",
         "kimi-k2.6": "kimi-k2.6",
-        "moonshot-v1-auto": "moonshot-v1-auto",
         "custom": "自定义"
       }
     },
@@ -33,11 +33,6 @@
     {
       "key": "customPrompt",
       "display": "自定义 Prompt",
-      "type": "input"
-    },
-    {
-      "key": "temperature",
-      "display": "温度",
       "type": "input"
     },
     {
