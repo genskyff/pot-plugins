@@ -123,7 +123,7 @@ async function translate(text, _from, to, options) {
     throw 'API key is required';
   }
 
-  const DEFAULT_MODEL = 'grok-4.20-non-reasoning';
+  const DEFAULT_MODEL = 'grok-4.5';
   model = model?.trim() || DEFAULT_MODEL;
   if (model === 'custom') {
     model = customModel?.trim() || DEFAULT_MODEL;
