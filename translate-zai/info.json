@@ -31,6 +31,31 @@
       "type": "input"
     },
     {
+      "key": "thinking",
+      "display": "思考模式",
+      "type": "select",
+      "options": {
+        "omit": "默认",
+        "enabled": "开启",
+        "disabled": "关闭"
+      }
+    },
+    {
+      "key": "reasoningEffort",
+      "display": "推理强度",
+      "type": "select",
+      "options": {
+        "omit": "默认",
+        "none": "none",
+        "minimal": "minimal",
+        "low": "low",
+        "medium": "medium",
+        "high": "high",
+        "xhigh": "xhigh",
+        "max": "max"
+      }
+    },
+    {
       "key": "customPrompt",
       "display": "自定义 Prompt",
       "type": "input"

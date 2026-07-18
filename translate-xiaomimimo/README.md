@@ -15,7 +15,6 @@
 ## 请求体固定参数
 
 - `max_completion_tokens`：`8192`
-- `thinking.type`：`disabled`
 
 若自定义模型或接口不支持某些默认参数，可通过 `自定义请求体（JSON）` 覆盖或删除（将字段设为 `null`）。
 

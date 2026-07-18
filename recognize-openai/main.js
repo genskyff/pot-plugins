@@ -70,7 +70,7 @@ async function recognize(base64, _lang, options) {
     config,
     utils: { tauriFetch: fetch },
   } = options;
-  let { requestUrl, apiKey, model, customModel, customPrompt, extraBody } = config;
+  let { requestUrl, apiKey, model, customModel, reasoningEffort, customPrompt, extraBody } = config;
 
   requestUrl = normalizeUrl(requestUrl);
 
@@ -144,10 +144,13 @@ Formatting rules:
     ],
     model,
     max_completion_tokens: 8192,
-    reasoning_effort: 'none',
     temperature: 0.0,
     verbosity: 'low',
   };
+
+  if (reasoningEffort?.trim() && reasoningEffort !== 'omit') {
+    defaultBody.reasoning_effort = reasoningEffort;
+  }
 
   const body = deepMerge(defaultBody, extraBody);
 

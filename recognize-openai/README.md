@@ -14,7 +14,6 @@
 ## 请求体固定参数
 
 - `max_completion_tokens`：`8192`
-- `reasoning_effort`：`none`
 - `temperature`：`0.0`
 - `verbosity`：`low`
 

@@ -100,7 +100,17 @@ async function translate(text, _from, to, options) {
     config,
     utils: { tauriFetch: fetch },
   } = options;
-  let { requestUrl, apiKey, model, customModel, customPrompt, temperature, extraBody } = config;
+  let {
+    requestUrl,
+    apiKey,
+    model,
+    customModel,
+    thinking,
+    reasoningEffort,
+    customPrompt,
+    temperature,
+    extraBody,
+  } = config;
 
   requestUrl = normalizeUrl(requestUrl);
 
@@ -156,10 +166,20 @@ Priority order:
     model,
     max_completion_tokens: 8192,
     temperature,
-    reasoning: {
-      effort: 'none',
-    },
   };
+
+  if (thinking?.trim() && thinking !== 'omit') {
+    defaultBody.reasoning = {
+      enabled: thinking === 'enabled',
+    };
+  }
+
+  if (reasoningEffort?.trim() && reasoningEffort !== 'omit') {
+    defaultBody.reasoning = {
+      ...defaultBody.reasoning,
+      effort: reasoningEffort,
+    };
+  }
 
   const body = deepMerge(defaultBody, extraBody);
 

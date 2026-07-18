@@ -30,6 +30,16 @@
       "type": "input"
     },
     {
+      "key": "thinking",
+      "display": "思考模式",
+      "type": "select",
+      "options": {
+        "omit": "默认",
+        "enabled": "开启",
+        "disabled": "关闭"
+      }
+    },
+    {
       "key": "customPrompt",
       "display": "自定义 Prompt",
       "type": "input"
