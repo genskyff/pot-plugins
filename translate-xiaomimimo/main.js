@@ -17,8 +17,13 @@ function normalizeUrl(requestUrl) {
 }
 
 function parseTemperature(value) {
-  const parsed = parseFloat(value?.trim());
-  return Number.isNaN(parsed) ? 0.2 : Math.min(Math.max(parsed, 0.0), 1.5);
+  const text = value?.trim();
+  if (!text) {
+    return null;
+  }
+
+  const parsed = Number(text);
+  return Number.isFinite(parsed) ? parsed : null;
 }
 
 function isPlainObject(value) {
@@ -156,8 +161,11 @@ Priority order:
     ],
     model,
     max_completion_tokens: 8192,
-    temperature,
   };
+
+  if (temperature !== null) {
+    defaultBody.temperature = temperature;
+  }
 
   if (thinking?.trim() && thinking !== 'omit') {
     defaultBody.thinking = {

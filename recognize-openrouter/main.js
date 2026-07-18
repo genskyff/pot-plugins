@@ -16,6 +16,16 @@ function normalizeUrl(requestUrl) {
   return normalizedUrl.replace(/\/+$/, '');
 }
 
+function parseTemperature(value) {
+  const text = value?.trim();
+  if (!text) {
+    return null;
+  }
+
+  const parsed = Number(text);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
 function isPlainObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
 }
@@ -78,6 +88,7 @@ async function recognize(base64, _lang, options) {
     thinking,
     reasoningEffort,
     customPrompt,
+    temperature,
     extraBody,
   } = config;
 
@@ -95,6 +106,7 @@ async function recognize(base64, _lang, options) {
   }
 
   customPrompt = customPrompt?.trim() || 'OCR this image.';
+  temperature = parseTemperature(temperature);
   extraBody = parseExtraBody(extraBody);
 
   const headers = {
@@ -153,8 +165,11 @@ Formatting rules:
     ],
     model,
     max_completion_tokens: 8192,
-    temperature: 0.0,
   };
+
+  if (temperature !== null) {
+    defaultBody.temperature = temperature;
+  }
 
   if (thinking?.trim() && thinking !== 'omit') {
     defaultBody.reasoning = {

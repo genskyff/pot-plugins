@@ -42,6 +42,11 @@
       }
     },
     {
+      "key": "temperature",
+      "display": "温度",
+      "type": "input"
+    },
+    {
       "key": "customPrompt",
       "display": "自定义 Prompt",
       "type": "input"

@@ -16,6 +16,16 @@ function normalizeUrl(requestUrl) {
   return normalizedUrl.replace(/\/+$/, '');
 }
 
+function parseTemperature(value) {
+  const text = value?.trim();
+  if (!text) {
+    return null;
+  }
+
+  const parsed = Number(text);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
 function isPlainObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
 }
@@ -70,7 +80,16 @@ async function recognize(base64, _lang, options) {
     config,
     utils: { tauriFetch: fetch },
   } = options;
-  let { requestUrl, apiKey, model, customModel, reasoningEffort, customPrompt, extraBody } = config;
+  let {
+    requestUrl,
+    apiKey,
+    model,
+    customModel,
+    reasoningEffort,
+    customPrompt,
+    temperature,
+    extraBody,
+  } = config;
 
   requestUrl = normalizeUrl(requestUrl);
 
@@ -86,6 +105,7 @@ async function recognize(base64, _lang, options) {
   }
 
   customPrompt = customPrompt?.trim() || 'OCR this image.';
+  temperature = parseTemperature(temperature);
   extraBody = parseExtraBody(extraBody);
 
   const headers = {
@@ -144,9 +164,12 @@ Formatting rules:
     ],
     model,
     max_completion_tokens: 8192,
-    temperature: 0.0,
     verbosity: 'low',
   };
+
+  if (temperature !== null) {
+    defaultBody.temperature = temperature;
+  }
 
   if (reasoningEffort?.trim() && reasoningEffort !== 'omit') {
     defaultBody.reasoning_effort = reasoningEffort;
