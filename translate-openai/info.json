@@ -20,8 +20,9 @@
       "display": "模型",
       "type": "select",
       "options": {
-        "gpt-5.6-terra": "gpt-5.6-terra",
         "gpt-5.6-luna": "gpt-5.6-luna",
+        "gpt-5.6-terra": "gpt-5.6-terra",
+        "gpt-5.6-sol": "gpt-5.6-sol",
         "custom": "自定义"
       }
     },

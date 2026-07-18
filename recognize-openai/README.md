@@ -6,7 +6,7 @@
 
 - `请求地址`：默认为 `https://api.openai.com/v1/chat/completions`
 - `API Key`：接口访问令牌，**必填**
-- `模型`：默认为 `gpt-5.6-terra`
+- `模型`：默认为 `gpt-5.6-luna`
 - `自定义模型`：选择 `自定义` 模型时使用
 - `自定义 Prompt`：用于指定 OCR 指令，内容会随截图一起发送；为空则使用内置默认 Prompt
 - `温度`：为空或非数字时不发送
