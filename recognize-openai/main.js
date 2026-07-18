@@ -168,7 +168,7 @@ Formatting rules:
     throw `Http Status: ${res.status}\n${JSON.stringify(res.data)}`;
   }
 
-  const outputText = res.data.choices?.[0]?.message?.content?.trim();
+  const outputText = res.data?.choices?.[0]?.message?.content?.trim();
   if (!outputText) {
     throw 'No text returned';
   }

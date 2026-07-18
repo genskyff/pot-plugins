@@ -186,7 +186,7 @@ Priority order:
     throw `Http Status: ${res.status}\n${JSON.stringify(res.data)}`;
   }
 
-  const outputText = res.data.content?.find((item) => item.type === 'text')?.text?.trim();
+  const outputText = res.data?.content?.find((item) => item.type === 'text')?.text?.trim();
   if (!outputText) {
     throw 'No text returned';
   }
