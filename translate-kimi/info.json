@@ -20,8 +20,8 @@
       "display": "模型",
       "type": "select",
       "options": {
-        "kimi-k2.6": "kimi-k2.6",
         "kimi-k3": "kimi-k3",
+        "kimi-k2.6": "kimi-k2.6",
         "custom": "自定义"
       }
     },
@@ -46,6 +46,8 @@
       "type": "select",
       "options": {
         "omit": "默认",
+        "low": "low",
+        "high": "high",
         "max": "max"
       }
     },
