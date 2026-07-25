@@ -9,7 +9,7 @@
     "fix": "oxfmt && oxlint --fix"
   },
   "devDependencies": {
-    "oxfmt": "^0.59.0",
-    "oxlint": "^1.74.0"
+    "oxfmt": "^0.60.0",
+    "oxlint": "^1.75.0"
   }
 }
