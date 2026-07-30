@@ -3,5 +3,8 @@
   "plugins": ["unicorn", "oxc"],
   "categories": {
     "correctness": "error"
+  },
+  "env": {
+    "builtin": true
   }
 }
