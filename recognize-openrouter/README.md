@@ -1,12 +1,12 @@
 # Pot 文字识别插件 - OpenRouter
 
-基于 OpenRouter 的 [Chat Completions](https://openrouter.ai/docs/api/api-reference/chat/send-chat-completion-request) 接口，对截图内容进行文本提取。
+基于 OpenRouter 的 [Chat Completions](https://openrouter.ai/docs/api/api-reference/chat/create-a-chat-completion) 接口，对截图内容进行文本提取。
 
 ## 配置说明
 
 - `请求地址`：默认为 `https://openrouter.ai/api/v1/chat/completions`
 - `API Key`：接口访问令牌，**必填**
-- `模型`：默认为 `openai/gpt-5.6-luna`
+- `模型`：默认为 `openrouter/free`
 - `自定义模型`：选择 `自定义` 模型时使用
 - `自定义 Prompt`：用于指定 OCR 指令，内容会随截图一起发送；为空则使用内置默认 Prompt
 - `温度`：为空或非数字时不发送

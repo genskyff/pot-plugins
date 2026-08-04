@@ -99,7 +99,7 @@ async function recognize(base64, _lang, options) {
     throw 'API key is required';
   }
 
-  const DEFAULT_MODEL = 'openai/gpt-5.6-luna';
+  const DEFAULT_MODEL = 'openrouter/free';
   model = model?.trim() || DEFAULT_MODEL;
   if (model === 'custom') {
     model = customModel?.trim() || DEFAULT_MODEL;
