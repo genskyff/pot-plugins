@@ -76,6 +76,7 @@ function parseExtraBody(value) {
 
 function buildCustomPrompt(text, to, customPrompt) {
   let prompt = customPrompt?.trim();
+  to = to?.trim() || 'Simplified Chinese';
 
   if (prompt) {
     if (!prompt.includes('$to')) {
