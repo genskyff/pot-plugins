@@ -21,7 +21,6 @@
 | `plugin.translate_claude`     | Claude      |
 | `plugin.translate_deepseek`   | DeepSeek    |
 | `plugin.translate_kimi`       | Kimi        |
-| `plugin.translate_longcat`    | LongCat     |
 | `plugin.translate_openai`     | OpenAI      |
 | `plugin.translate_openrouter` | OpenRouter  |
 | `plugin.translate_xai`        | xAI         |
