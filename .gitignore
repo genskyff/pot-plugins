@@ -6,8 +6,8 @@
 *.potext
 
 # Dist
-.pnpm-store
 node_modules
+.pnpm-store
 
 # IDE
 .idea

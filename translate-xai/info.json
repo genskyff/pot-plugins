@@ -20,7 +20,7 @@
       "display": "模型",
       "type": "select",
       "options": {
-        "grok-4.5": "grok-4.5",
+        "grok-4.6": "grok-4.6",
         "grok-4.20-non-reasoning": "grok-4.20-non-reasoning",
         "custom": "自定义"
       }
