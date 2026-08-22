@@ -6,14 +6,15 @@
 
 ### 文字识别插件
 
-| 插件 ID                       | 插件名称   |
-| ----------------------------- | ---------- |
-| `plugin.recognize_claude`     | Claude     |
-| `plugin.recognize_deepseek`   | DeepSeek   |
-| `plugin.recognize_kimi`       | Kimi       |
-| `plugin.recognize_openai`     | OpenAI     |
-| `plugin.recognize_openrouter` | OpenRouter |
-| `plugin.recognize_xai`        | xAI        |
+| 插件 ID                       | 插件名称    |
+| ----------------------------- | ----------- |
+| `plugin.recognize_claude`     | Claude      |
+| `plugin.recognize_deepseek`   | DeepSeek    |
+| `plugin.recognize_kimi`       | Kimi        |
+| `plugin.recognize_openai`     | OpenAI      |
+| `plugin.recognize_openrouter` | OpenRouter  |
+| `plugin.recognize_xai`        | xAI         |
+| `plugin.recognize_xiaomimimo` | XiaoMi MiMo |
 
 ### 翻译插件
 

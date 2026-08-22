@@ -42,6 +42,7 @@ jobs:
           - recognize-openai
           - recognize-openrouter
           - recognize-xai
+          - recognize-xiaomimimo
           - translate-claude
           - translate-deepseek
           - translate-kimi
