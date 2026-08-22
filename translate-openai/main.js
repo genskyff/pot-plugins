@@ -112,8 +112,8 @@ async function translate(text, _from, to, options) {
     model,
     customModel,
     reasoningEffort,
-    customPrompt,
     temperature,
+    customPrompt,
     extraBody,
   } = config;
 
@@ -130,8 +130,8 @@ async function translate(text, _from, to, options) {
     model = customModel?.trim() || DEFAULT_MODEL;
   }
 
-  customPrompt = buildCustomPrompt(text, to, customPrompt);
   temperature = parseTemperature(temperature);
+  customPrompt = buildCustomPrompt(text, to, customPrompt);
   extraBody = parseExtraBody(extraBody);
 
   const headers = {
@@ -186,12 +186,12 @@ Priority:
     verbosity: 'low',
   };
 
-  if (temperature !== null) {
-    defaultBody.temperature = temperature;
-  }
-
   if (reasoningEffort?.trim() && reasoningEffort !== 'omit') {
     defaultBody.reasoning_effort = reasoningEffort;
+  }
+
+  if (temperature !== null) {
+    defaultBody.temperature = temperature;
   }
 
   const body = deepMerge(defaultBody, extraBody);

@@ -86,8 +86,8 @@ async function recognize(base64, _lang, options) {
     model,
     customModel,
     reasoningEffort,
-    customPrompt,
     temperature,
+    customPrompt,
     extraBody,
   } = config;
 
@@ -104,8 +104,8 @@ async function recognize(base64, _lang, options) {
     model = customModel?.trim() || DEFAULT_MODEL;
   }
 
-  customPrompt = customPrompt?.trim() || 'OCR this image.';
   temperature = parseTemperature(temperature);
+  customPrompt = customPrompt?.trim() || 'OCR this image.';
   extraBody = parseExtraBody(extraBody);
 
   const headers = {
@@ -165,12 +165,12 @@ Formatting rules:
     max_completion_tokens: 8192,
   };
 
-  if (temperature !== null) {
-    defaultBody.temperature = temperature;
-  }
-
   if (reasoningEffort?.trim() && reasoningEffort !== 'omit') {
     defaultBody.reasoning_effort = reasoningEffort;
+  }
+
+  if (temperature !== null) {
+    defaultBody.temperature = temperature;
   }
 
   const body = deepMerge(defaultBody, extraBody);

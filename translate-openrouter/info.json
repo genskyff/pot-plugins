@@ -59,13 +59,13 @@
       }
     },
     {
-      "key": "customPrompt",
-      "display": "自定义 Prompt",
+      "key": "temperature",
+      "display": "温度",
       "type": "input"
     },
     {
-      "key": "temperature",
-      "display": "温度",
+      "key": "customPrompt",
+      "display": "自定义 Prompt",
       "type": "input"
     },
     {

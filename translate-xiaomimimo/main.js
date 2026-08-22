@@ -106,7 +106,7 @@ async function translate(text, _from, to, options) {
     config,
     utils: { tauriFetch: fetch },
   } = options;
-  let { requestUrl, apiKey, model, customModel, thinking, customPrompt, temperature, extraBody } =
+  let { requestUrl, apiKey, model, customModel, thinking, temperature, customPrompt, extraBody } =
     config;
 
   requestUrl = normalizeUrl(requestUrl);
@@ -122,8 +122,8 @@ async function translate(text, _from, to, options) {
     model = customModel?.trim() || DEFAULT_MODEL;
   }
 
-  customPrompt = buildCustomPrompt(text, to, customPrompt);
   temperature = parseTemperature(temperature);
+  customPrompt = buildCustomPrompt(text, to, customPrompt);
   extraBody = parseExtraBody(extraBody);
 
   const headers = {
@@ -167,14 +167,14 @@ Priority:
     max_completion_tokens: 8192,
   };
 
-  if (temperature !== null) {
-    defaultBody.temperature = temperature;
-  }
-
   if (thinking?.trim() && thinking !== 'omit') {
     defaultBody.thinking = {
       type: thinking,
     };
+  }
+
+  if (temperature !== null) {
+    defaultBody.temperature = temperature;
   }
 
   const body = deepMerge(defaultBody, extraBody);
