@@ -4,6 +4,9 @@
   "categories": {
     "correctness": "error"
   },
+  "rules": {
+    "no-undef": "error"
+  },
   "env": {
     "builtin": true
   }
