@@ -16,6 +16,16 @@ function normalizeUrl(requestUrl) {
   return normalizedUrl.replace(/\/+$/, '');
 }
 
+function parseTemperature(value) {
+  const text = value?.trim();
+  if (!text) {
+    return null;
+  }
+
+  const parsed = Number(text);
+  return Number.isFinite(parsed) ? parsed : null;
+}
+
 function isPlainObject(value) {
   return value !== null && typeof value === 'object' && !Array.isArray(value);
 }
@@ -70,7 +80,16 @@ async function recognize(base64, _lang, options) {
     config,
     utils: { tauriFetch: fetch },
   } = options;
-  let { requestUrl, apiKey, model, customModel, reasoningEffort, customPrompt, extraBody } = config;
+  let {
+    requestUrl,
+    apiKey,
+    model,
+    customModel,
+    reasoningEffort,
+    temperature,
+    customPrompt,
+    extraBody,
+  } = config;
 
   requestUrl = normalizeUrl(requestUrl);
 
@@ -85,6 +104,7 @@ async function recognize(base64, _lang, options) {
     model = customModel?.trim() || DEFAULT_MODEL;
   }
 
+  temperature = parseTemperature(temperature);
   customPrompt = customPrompt?.trim() || 'OCR this image.';
   extraBody = parseExtraBody(extraBody);
 
@@ -147,6 +167,10 @@ Formatting rules:
 
   if (reasoningEffort?.trim() && reasoningEffort !== 'omit') {
     defaultBody.reasoning_effort = reasoningEffort;
+  }
+
+  if (temperature !== null) {
+    defaultBody.temperature = temperature;
   }
 
   const body = deepMerge(defaultBody, extraBody);
