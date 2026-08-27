@@ -46,12 +46,8 @@
       "type": "select",
       "options": {
         "omit": "默认",
-        "none": "none",
-        "minimal": "minimal",
         "low": "low",
-        "medium": "medium",
         "high": "high",
-        "xhigh": "xhigh",
         "max": "max"
       }
     },
