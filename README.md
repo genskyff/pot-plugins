@@ -15,6 +15,7 @@
 | `plugin.recognize_openrouter` | OpenRouter  |
 | `plugin.recognize_xai`        | xAI         |
 | `plugin.recognize_xiaomimimo` | XiaoMi MiMo |
+| `plugin.recognize_zai`        | Z.ai        |
 
 ### 翻译插件
 

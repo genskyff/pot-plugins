@@ -43,6 +43,7 @@ jobs:
           - recognize-openrouter
           - recognize-xai
           - recognize-xiaomimimo
+          - recognize-zai
           - translate-claude
           - translate-deepseek
           - translate-kimi
