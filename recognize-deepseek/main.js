@@ -99,7 +99,7 @@ async function recognize(base64, _lang, options) {
     throw 'API key is required';
   }
 
-  const DEFAULT_MODEL = 'deepseek-v4-flash-vision-exp';
+  const DEFAULT_MODEL = 'deepseek-flash';
   model = model?.trim() || DEFAULT_MODEL;
   if (model === 'custom') {
     model = customModel?.trim() || DEFAULT_MODEL;

@@ -20,7 +20,7 @@
       "display": "模型",
       "type": "select",
       "options": {
-        "deepseek-v4-flash": "deepseek-v4-flash",
+        "deepseek-flash": "deepseek-flash",
         "deepseek-v4-pro": "deepseek-v4-pro",
         "custom": "自定义"
       }
