@@ -20,7 +20,8 @@
       "display": "模型",
       "type": "select",
       "options": {
-        "mimo-v2.5": "mimo-v2.5",
+        "mimo-v2.6-flash": "mimo-v2.6-flash",
+        "mimo-v2.6-pro": "mimo-v2.6-pro",
         "custom": "自定义"
       }
     },
