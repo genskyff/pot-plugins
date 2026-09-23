@@ -78,7 +78,7 @@ function buildCustomPrompt(text, to, customPrompt) {
         '\n\nTranslate only the content inside the `<app_source_text>` tags. Do not include the enclosing tags in the output.\n\n<app_source_text>\n$text\n</app_source_text>\n';
     }
 
-    return prompt.replaceAll('$to', to).replaceAll('$text', text);
+    return prompt.replaceAll('$to', () => to).replaceAll('$text', () => text);
   }
 
   return `Target language: ${to}
