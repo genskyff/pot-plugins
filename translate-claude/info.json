@@ -20,7 +20,7 @@
       "display": "模型",
       "type": "select",
       "options": {
-        "claude-sonnet-5": "claude-sonnet-5",
+        "claude-sonnet-5-5": "claude-sonnet-5-5",
         "claude-opus-5-5": "claude-opus-5-5",
         "custom": "自定义"
       }

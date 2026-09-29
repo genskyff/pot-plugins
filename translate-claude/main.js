@@ -113,7 +113,7 @@ async function translate(text, from, to, options) {
     throw 'API key is required';
   }
 
-  const DEFAULT_MODEL = 'claude-sonnet-5';
+  const DEFAULT_MODEL = 'claude-sonnet-5-5';
   model = model?.trim() || DEFAULT_MODEL;
   if (model === 'custom') {
     model = customModel?.trim() || DEFAULT_MODEL;
