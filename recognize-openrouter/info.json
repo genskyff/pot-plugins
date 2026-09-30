@@ -22,7 +22,7 @@
       "options": {
         "openrouter/free": "openrouter/free",
         "openai/gpt-6-luna": "openai/gpt-6-luna",
-        "anthropic/claude-sonnet-5": "anthropic/claude-sonnet-5",
+        "anthropic/claude-sonnet-5.5": "anthropic/claude-sonnet-5.5",
         "x-ai/grok-4.7": "x-ai/grok-4.7",
         "google/gemini-3.8-flash": "google/gemini-3.8-flash",
         "custom": "自定义"
