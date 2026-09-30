@@ -83,15 +83,24 @@ jobs:
       contents: write
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v7
+
       - name: Download artifacts
         uses: actions/download-artifact@v8
         with:
           path: artifacts
           merge-multiple: true
 
+      - name: Extract release notes
+        run: |
+          if [ -f CHANGELOG.md ]; then awk -v header="## [${GITHUB_REF_NAME#v}]" 'index($0, header) == 1 { found = 1; next } found && /^## \[[0-9]/ { exit } found' CHANGELOG.md; fi > notes.md
+          [ -s notes.md ] || echo "::warning::CHANGELOG.md 中没有 $GITHUB_REF_NAME 的条目"
+
       - name: Publish release
         uses: softprops/action-gh-release@v3
         with:
+          body_path: notes.md
           files: artifacts/*.potext
           generate_release_notes: true
           fail_on_unmatched_files: true
