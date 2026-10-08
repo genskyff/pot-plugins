@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 
+## [1.29.0](https://github.com/genskyff/pot-plugins/releases/tag/1.29.0) - 2026-10-08
+
+### 变更
+
+- Claude 翻译与文字识别插件（`translate-claude`、`recognize-claude`）的默认模型由 `claude-sonnet-5-5` 改为 `claude-haiku-5-5`，模型下拉新增 `claude-haiku-5-5` 预设；`claude-sonnet-5-5` 与 `claude-opus-5-5` 仍保留，可继续选用。
+- 模型留空，或选择「自定义」但未填写自定义模型名时，回退使用的默认模型同样为 `claude-haiku-5-5`。
+- OpenRouter 翻译与文字识别插件（`translate-openrouter`、`recognize-openrouter`）模型下拉中的预设 `anthropic/claude-sonnet-5.5` 已替换为 `anthropic/claude-haiku-5.5`；插件默认模型仍为 `openrouter/free`，直接使用默认模型的用户不受影响。
+- 模型选项随插件包提供，需在 Pot 中重新导入对应的 `.potext` 文件后新选项才会出现在设置中；此前选中已被移除的 `anthropic/claude-sonnet-5.5` 的配置，需在「模型」中重新选择，或改选「自定义」并在「自定义模型」中填写所需模型名。
+
 ## [1.28.0](https://github.com/genskyff/pot-plugins/releases/tag/v1.28.0) - 2026-09-30
 
 ### 变更
