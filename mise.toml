@@ -1,3 +1,10 @@
 [tools]
 node = "lts"
-pnpm = "latest"
+oxfmt = "latest"
+oxlint = "latest"
+
+[tasks.check]
+run = ["oxfmt --check", "oxlint"]
+
+[tasks.fix]
+run = ["oxfmt", "oxlint --fix"]

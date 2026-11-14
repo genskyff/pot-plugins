@@ -7,8 +7,6 @@
 *.http
 
 # Dist
-node_modules
-.pnpm-store
 *.potext
 
 # IDE
