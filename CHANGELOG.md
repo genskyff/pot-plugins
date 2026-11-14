@@ -2,6 +2,28 @@
 
 ## [Unreleased]
 
+## [1.30.0](https://github.com/genskyff/pot-plugins/releases/tag/1.30.0) - 2026-11-14
+
+### 新增
+
+- xAI 翻译与文字识别插件（`translate-xai`、`recognize-xai`）的「推理强度」新增 `xhigh` 档位，适用于 `grok-4.6` 及之后的模型（`8a7367f`）。
+
+### 变更
+
+- OpenRouter 翻译与文字识别插件（`translate-openrouter`、`recognize-openrouter`）模型下拉中的预设 `google/gemini-3.8-flash` 已替换为 `google/gemini-4-hydrogen`；插件默认模型仍为 `openrouter/free`，直接使用默认模型的用户不受影响（`b0f3b5f`）。
+- Kimi 翻译与文字识别插件（`translate-kimi`、`recognize-kimi`）模型下拉中的预设 `kimi-k2.6` 已替换为 `kimi-k3.1-pro`（`kimi-k2.6` 已弃用，将于 2026 年 12 月底下线）；默认模型仍为 `kimi-k3`（`dbc99c9`）。
+- 模型选项随插件包提供，需在 Pot 中重新导入对应的 `.potext` 文件后才会在设置中出现。此前选中已被移除的 `google/gemini-3.8-flash` 或 `kimi-k2.6` 的配置，请在「模型」中重新选择，或改选「自定义」并填写所需模型名。
+
+### 移除
+
+- Claude 翻译与文字识别插件（`translate-claude`、`recognize-claude`）移除「思考模式」选项：`claude-opus-5-5` 与 `claude-sonnet-5-5` 会拒绝 `thinking.type: disabled` 的请求并返回 400，此前将该选项设为「关闭」会导致翻译或文字识别失败。现在不再发送 `thinking` 参数，行为与「开启」（即各预设模型的默认状态）一致；如需强制指定，可通过「自定义请求体（JSON）」填写（`86b09ff`）。
+- Z.ai 翻译插件（`translate-zai`）移除「思考模式」选项：`glm-5.3` 与 `glm-5.3-flash` 始终思考且无法关闭，该选项此前不产生实际效果；「推理强度」保留（`890180a`）。
+- Kimi 翻译与文字识别插件移除「思考模式」选项，K3 系列模型不使用该字段；「推理强度」保留（`dbc99c9`）。
+
+### 修复
+
+- 修正 Claude、DeepSeek、xAI、XiaoMi MiMo 各插件 README 中失效的接口文档链接（xAI 旧链接返回 404，MiMo 旧链接指向空页面）（`3471ce2`）。
+
 ## [1.29.0](https://github.com/genskyff/pot-plugins/releases/tag/v1.29.0) - 2026-10-08
 
 ### 变更
