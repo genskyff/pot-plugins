@@ -38,7 +38,8 @@
         "omit": "默认",
         "low": "low",
         "medium": "medium",
-        "high": "high"
+        "high": "high",
+        "xhigh": "xhigh"
       }
     },
     {
