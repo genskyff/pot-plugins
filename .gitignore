@@ -1,13 +1,15 @@
 # Local
 .DS_Store
-*.local*
-*.log*
+*.local
+*.local.*
+*.log
+*.log.*
 *.http
-*.potext
 
 # Dist
 node_modules
 .pnpm-store
+*.potext
 
 # IDE
 .idea
