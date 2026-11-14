@@ -1,6 +1,6 @@
 # Pot 翻译插件 - DeepSeek
 
-基于 DeepSeek 的 [Chat Completions](https://api-docs.deepseek.com/zh-cn/api/create-chat-completion) 接口，将文本翻译为目标语言。
+基于 DeepSeek 的 [Chat Completions](https://api-docs.deepseek.com/zh-cn/api/create-chat-completion/) 接口，将文本翻译为目标语言。
 
 ## 配置说明
 

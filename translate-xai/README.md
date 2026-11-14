@@ -1,6 +1,6 @@
 # Pot 翻译插件 - xAI
 
-基于 xAI 的 [Chat Completions](https://docs.x.ai/developers/rest-api-reference/inference/chat#chat-completions) 接口，将文本翻译为目标语言。
+基于 xAI 的 [Chat Completions](https://docs.x.ai/developers/rest-api-reference/inference/chat-completions) 接口，将文本翻译为目标语言。
 
 ## 配置说明
 

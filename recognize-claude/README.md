@@ -1,6 +1,6 @@
 # Pot 文字识别插件 - Claude
 
-基于 Anthropic 的 [Messages](https://platform.claude.com/docs/en/api/messages/create) 接口，对截图内容进行文本提取。
+基于 Anthropic 的 [Messages](https://platform.claude.com/docs/zh-CN/api/messages/create) 接口，对截图内容进行文本提取。
 
 ## 配置说明
 

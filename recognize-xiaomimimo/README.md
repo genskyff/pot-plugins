@@ -1,6 +1,6 @@
 # Pot 文字识别插件 - XiaoMi MiMo
 
-基于 XiaoMi MiMo 的 [Chat Completions](https://platform.xiaomimimo.com/docs/zh-CN/api/chat/openai-api) 接口，对截图内容进行文本提取。
+基于 XiaoMi MiMo 的 [Chat Completions](https://mimo.mi.com/docs/zh-CN/api/chat/openai-api-post) 接口，对截图内容进行文本提取。
 
 ## 配置说明
 

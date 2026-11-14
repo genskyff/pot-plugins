@@ -1,6 +1,6 @@
 # Pot 文字识别插件 - xAI
 
-基于 xAI 的 [Chat Completions](https://docs.x.ai/developers/rest-api-reference/inference/chat#chat-completions) 接口，对截图内容进行文本提取。
+基于 xAI 的 [Chat Completions](https://docs.x.ai/developers/rest-api-reference/inference/chat-completions) 接口，对截图内容进行文本提取。
 
 ## 配置说明
 

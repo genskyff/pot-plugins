@@ -1,6 +1,6 @@
 # Pot 翻译插件 - XiaoMi MiMo
 
-基于 XiaoMi MiMo 的 [Chat Completions](https://platform.xiaomimimo.com/docs/zh-CN/api/chat/openai-api) 接口，将文本翻译为目标语言。
+基于 XiaoMi MiMo 的 [Chat Completions](https://mimo.mi.com/docs/zh-CN/api/chat/openai-api-post) 接口，将文本翻译为目标语言。
 
 ## 配置说明
 
