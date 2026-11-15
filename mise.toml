@@ -8,3 +8,7 @@ run = ["oxfmt --check", "oxlint"]
 
 [tasks.fix]
 run = ["oxfmt", "oxlint --fix"]
+
+[tasks.ab]
+description = "A/B test the plugin prompts against real models"
+run = "fnox exec -- node tests/ab.mjs"
