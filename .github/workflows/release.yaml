@@ -79,7 +79,7 @@ jobs:
 
       - name: Extract release notes
         run: |
-          if [ -f CHANGELOG.md ]; then awk -v header="## [${GITHUB_REF_NAME#v}]" 'index($0, header) == 1 { found = 1; next } found && /^## \[[0-9]/ { exit } found' CHANGELOG.md; fi > notes.md
+          if [ -f CHANGELOG.md ]; then awk -v header="## [$GITHUB_REF_NAME]" 'index($0, header) == 1 { found = 1; next } found && /^## \[[0-9]/ { exit } found' CHANGELOG.md; fi > notes.md
           [ -s notes.md ] || echo "::warning::CHANGELOG.md 中没有 $GITHUB_REF_NAME 的条目"
 
       - name: Publish release
