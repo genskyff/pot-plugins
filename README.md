@@ -36,9 +36,9 @@
 
 ## 发布
 
-推送 tag 即可触发 GitHub Actions 自动构建并发布所有插件：
+推送 `x.y.z` 格式的 tag（不带 `v` 前缀）即可触发 GitHub Actions 自动构建并发布所有插件：
 
 ```shell
-git tag <tag_name>
+git tag <x.y.z>
 git push --tags
 ```
