@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [1.31.0](https://github.com/genskyff/pot-plugins/releases/tag/1.31.0) - 2026-11-15
+
+### 变更
+
+- 八个翻译插件（`translate-claude`、`translate-deepseek`、`translate-kimi`、`translate-openai`、`translate-openrouter`、`translate-xai`、`translate-xiaomimimo`、`translate-zai`）的内置提示词重写：明确源文本与目标语言都位于用户消息中（源文本可能被 `<source_text>` 标签包裹，标签本身不属于正文），并把语言识别、多语言混排、格式保留等重叠规则合并为一组要点；简繁中文、粤语等文字/地区变体仍按不同语言处理（`7239707`）。
+- 提示词结尾新增输出要求「只输出目标语言译文，前后不加推理或说明」，减少译文前出现「以下是翻译」之类前言或思考内容的情况；「自定义 Prompt」的 `$text`、`$to` 占位符与拼接逻辑不变（`7239707`）。
+- 内置提示词随插件包提供，需在 Pot 中重新导入对应的 `.potext` 文件后才会生效。
+
 ## [1.30.0](https://github.com/genskyff/pot-plugins/releases/tag/1.30.0) - 2026-11-14
 
 ### 新增
