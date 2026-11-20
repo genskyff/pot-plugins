@@ -2,6 +2,14 @@
 
 ## [Unreleased]
 
+## [1.32.0](https://github.com/genskyff/pot-plugins/releases/tag/1.32.0) - 2026-11-20
+
+### 变更
+
+- OpenAI 翻译与文字识别插件（`translate-openai`、`recognize-openai`）的「模型」下拉中，预设 `gpt-6.1-sol` 已替换为 `gpt-6.1-terra`，并新增 `gpt-6.2-sol`；默认模型仍为 `gpt-6-luna`，未手动选择模型的用户不受影响（`283a94e`）。
+- OpenRouter 翻译与文字识别插件（`translate-openrouter`、`recognize-openrouter`）的「模型」下拉移除 `x-ai/grok-4.7` 预设，默认模型仍为 `openrouter/free`；如需继续使用该模型，请在「模型」中选择「自定义」并填写 `x-ai/grok-4.7`（同一提交）。xAI 插件（`translate-xai`、`recognize-xai`）自身的 `grok-4.7` 默认模型不受影响。
+- 模型选项随插件包提供，需在 Pot 中重新导入对应的 `.potext` 文件后才会在设置中生效。
+
 ## [1.31.0](https://github.com/genskyff/pot-plugins/releases/tag/1.31.0) - 2026-11-15
 
 ### 变更
