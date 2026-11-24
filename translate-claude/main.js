@@ -115,6 +115,7 @@ async function translate(text, from, to, options) {
   const headers = {
     'Content-Type': 'application/json',
     'anthropic-version': '2023-06-01',
+    'anthropic-beta': 'server-side-fallback-2026-07-01',
     'X-Api-Key': apiKey,
   };
 
@@ -140,6 +141,7 @@ Output only the translation, in the target language, with no reasoning or notes 
     ],
     model,
     max_tokens: 64000,
+    fallbacks: 'default',
   };
 
   if (reasoningEffort?.trim() && reasoningEffort !== 'omit') {
@@ -162,6 +164,10 @@ Output only the translation, in the target language, with no reasoning or notes 
 
   if (!res.ok) {
     throw `Http Status: ${res.status}\n${JSON.stringify(res.data)}`;
+  }
+
+  if (res.data?.stop_reason === 'refusal') {
+    throw `Stop Reason: refusal\n${JSON.stringify(res.data.stop_details)}`;
   }
 
   const outputText = res.data?.content?.find((item) => item.type === 'text')?.text?.trim();

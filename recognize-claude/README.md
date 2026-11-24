@@ -14,9 +14,11 @@
 ## 请求体固定参数
 
 - `max_tokens`：`64000`
+- `fallbacks`：`"default"`，被安全分类器拒答时由 API 换用官方推荐的模型重答
 
 若自定义模型或接口不支持某些默认参数，可通过 `自定义请求体（JSON）` 覆盖或删除（将字段设为 `null`）。
 
 ## 响应解析
 
 - 取响应 `content` 中首个文本块（`type: "text"`）作为结果
+- `stop_reason` 为 `refusal` 时报错，并附上 `stop_details`
