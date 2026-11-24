@@ -23,6 +23,7 @@ jobs:
         plugin:
           - recognize-claude
           - recognize-deepseek
+          - recognize-gemini
           - recognize-kimi
           - recognize-openai
           - recognize-openrouter
@@ -31,6 +32,7 @@ jobs:
           - recognize-zai
           - translate-claude
           - translate-deepseek
+          - translate-gemini
           - translate-kimi
           - translate-openai
           - translate-openrouter

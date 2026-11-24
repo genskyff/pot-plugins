@@ -27,7 +27,7 @@ export function redact(value) {
 }
 
 function promptSpan(code, dir) {
-  const anchor = code.search(/\bsystem: `|role: 'system',/);
+  const anchor = code.search(/\bsystem(?:_instruction)?: `|role: 'system',/);
   const start = code.indexOf('`', anchor);
   const end = code.indexOf('`', start + 1);
   if (anchor === -1 || start === -1 || end === -1) {
@@ -111,8 +111,13 @@ function liveFetch(usage, seen) {
         // keep the raw body for the plugin's error message
       }
       usage.calls++;
-      usage.input += data?.usage?.prompt_tokens ?? data?.usage?.input_tokens ?? 0;
-      usage.output += data?.usage?.completion_tokens ?? data?.usage?.output_tokens ?? 0;
+      const used = data?.usage ?? {};
+      usage.input += used.prompt_tokens ?? used.input_tokens ?? used.total_input_tokens ?? 0;
+      // Gemini reports thought tokens apart from output tokens; both are billed as output.
+      usage.output +=
+        used.completion_tokens ??
+        used.output_tokens ??
+        (used.total_output_tokens ?? 0) + (used.total_thought_tokens ?? 0);
       seen.model = data?.model;
       seen.failed = !res.ok;
       return { ok: res.ok, status: res.status, data };
@@ -129,6 +134,7 @@ function dryFetch(sent) {
       data: {
         choices: [{ message: { content: 'dry' } }],
         content: [{ type: 'text', text: 'dry' }],
+        steps: [{ type: 'model_output', content: [{ type: 'text', text: 'dry' }] }],
       },
     };
   };
@@ -139,10 +145,17 @@ const partsText = (content) =>
     ? content
     : content.map((part) => (part.type === 'text' ? part.text : `[${part.type}]`)).join(' + ');
 
+const geminiInput = (input) =>
+  typeof input === 'string' ? input : input.find((step) => step.type === 'user_input').content;
+
 export function describePayload(payload) {
   const system =
-    payload.system ?? payload.messages.find((message) => message.role === 'system').content;
-  const user = payload.messages.find((message) => message.role === 'user').content;
+    payload.system ??
+    payload.system_instruction ??
+    payload.messages.find((message) => message.role === 'system').content;
+  const user = payload.messages
+    ? payload.messages.find((message) => message.role === 'user').content
+    : geminiInput(payload.input);
   return { model: payload.model, system: partsText(system), user: partsText(user) };
 }
 

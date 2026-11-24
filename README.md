@@ -10,6 +10,7 @@
 | ----------------------------- | ----------- |
 | `plugin.recognize_claude`     | Claude      |
 | `plugin.recognize_deepseek`   | DeepSeek    |
+| `plugin.recognize_gemini`     | Gemini      |
 | `plugin.recognize_kimi`       | Kimi        |
 | `plugin.recognize_openai`     | OpenAI      |
 | `plugin.recognize_openrouter` | OpenRouter  |
@@ -23,6 +24,7 @@
 | ----------------------------- | ----------- |
 | `plugin.translate_claude`     | Claude      |
 | `plugin.translate_deepseek`   | DeepSeek    |
+| `plugin.translate_gemini`     | Gemini      |
 | `plugin.translate_kimi`       | Kimi        |
 | `plugin.translate_openai`     | OpenAI      |
 | `plugin.translate_openrouter` | OpenRouter  |
