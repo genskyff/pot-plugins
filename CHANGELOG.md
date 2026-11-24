@@ -2,6 +2,30 @@
 
 ## [Unreleased]
 
+## [1.33.0](https://github.com/genskyff/pot-plugins/releases/tag/1.33.0) - 2026-11-24
+
+### 新增
+
+- 新增 Gemini 翻译与文字识别插件（`translate-gemini`、`recognize-gemini`），基于 Google Interactions 接口，请求地址留空时使用 Google 官方接口地址，API Key 必填。预设模型为 `gemini-4-hydrogen`（默认）和 `gemini-4-neon`，也可填写自定义模型；支持「推理强度」（`low` / `medium` / `high` / `xhigh`）、「自定义 Prompt」和「自定义请求体（JSON）」（[9ca59c1](https://github.com/genskyff/pot-plugins/commit/9ca59c1)）。
+- xAI 插件（`translate-xai`、`recognize-xai`）的「推理强度」新增 `xhigh` 选项，适用于 `grok-4.6` 及之后的模型（[8a7367f](https://github.com/genskyff/pot-plugins/commit/8a7367f)）。
+
+### 变更
+
+- 八个翻译插件（`translate-claude`、`translate-deepseek`、`translate-kimi`、`translate-openai`、`translate-openrouter`、`translate-xai`、`translate-xiaomimimo`、`translate-zai`）的内置提示词已重写：合并了重叠的规则，并在结尾要求只输出目标语言译文、前后不加推理或说明。「自定义 Prompt」的 `$text`、`$to` 占位符用法不变（[7239707](https://github.com/genskyff/pot-plugins/commit/7239707)）。
+- OpenAI 插件（`translate-openai`、`recognize-openai`）的预设模型 `gpt-6.1-sol` 替换为 `gpt-6.1-terra`，并新增 `gpt-6.2-sol`；默认模型仍为 `gpt-6-luna`（[283a94e](https://github.com/genskyff/pot-plugins/commit/283a94e)）。
+- Kimi 插件（`translate-kimi`、`recognize-kimi`）的预设模型 `kimi-k2.6` 替换为 `kimi-k3.1-pro`；`kimi-k2.6` 已被弃用，将于 2026 年 12 月底下线。默认模型仍为 `kimi-k3`（[dbc99c9](https://github.com/genskyff/pot-plugins/commit/dbc99c9)）。
+- OpenRouter 插件（`translate-openrouter`、`recognize-openrouter`）的预设模型 `google/gemini-3.8-flash` 替换为 `google/gemini-4-hydrogen`，并移除 `x-ai/grok-4.7` 预设；默认模型仍为 `openrouter/free`。如需继续使用已移除的模型，请在「模型」中选择「自定义」并填写模型名（[b0f3b5f](https://github.com/genskyff/pot-plugins/commit/b0f3b5f)、[283a94e](https://github.com/genskyff/pot-plugins/commit/283a94e)）。
+- 以上改动随插件包提供，需在 Pot 中重新导入对应的 `.potext` 文件后才会生效。
+
+### 移除
+
+- Claude 插件（`translate-claude`、`recognize-claude`）移除「思考模式」选项：Opus 5.5 与 Sonnet 5.5 在关闭思考时会返回 400 错误，而「开启」与各预设模型的默认行为相同。「推理强度」选项保留（[86b09ff](https://github.com/genskyff/pot-plugins/commit/86b09ff)）。
+- Kimi 插件（`translate-kimi`、`recognize-kimi`）和 `translate-zai` 移除「思考模式」选项：Kimi K3 系列不使用该字段，`glm-5.3` 与 `glm-5.3-flash` 始终思考且无法关闭（[dbc99c9](https://github.com/genskyff/pot-plugins/commit/dbc99c9)、[890180a](https://github.com/genskyff/pot-plugins/commit/890180a)）。
+
+### 修复
+
+- 修复思考过程耗尽输出 token 上限导致返回空结果的问题：除 Claude 外，各翻译与文字识别插件不再发送固定的 8192 输出上限，改用服务商默认值；Claude 接口必须指定 `max_tokens`，现改为 `64000`。如需自行限制输出长度，可在「自定义请求体（JSON）」中设置（[5dba872](https://github.com/genskyff/pot-plugins/commit/5dba872)）。
+
 ## [1.32.0](https://github.com/genskyff/pot-plugins/releases/tag/1.32.0) - 2026-11-20
 
 ### 变更
