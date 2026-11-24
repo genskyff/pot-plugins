@@ -127,7 +127,7 @@ Output only the transcribed text, without adding Markdown or code fences. If the
       },
     ],
     model,
-    max_tokens: 8192,
+    max_tokens: 64000,
   };
 
   if (reasoningEffort?.trim() && reasoningEffort !== 'omit') {

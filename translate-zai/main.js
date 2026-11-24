@@ -162,7 +162,6 @@ Output only the translation, in the target language, with no reasoning or notes 
       },
     ],
     model,
-    max_tokens: 8192,
   };
 
   if (reasoningEffort?.trim() && reasoningEffort !== 'omit') {

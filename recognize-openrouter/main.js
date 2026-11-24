@@ -149,7 +149,6 @@ Output only the transcribed text, without adding Markdown or code fences. If the
       },
     ],
     model,
-    max_completion_tokens: 8192,
   };
 
   if (thinking?.trim() && thinking !== 'omit') {
