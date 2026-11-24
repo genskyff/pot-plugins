@@ -99,7 +99,6 @@ ${text}
 ${sourceLanguage}Target language: ${to}`;
 }
 
-// oxlint-disable-next-line no-unused-vars
 async function translate(text, from, to, options) {
   const {
     config,

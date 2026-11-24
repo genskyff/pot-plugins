@@ -65,7 +65,6 @@ function parseExtraBody(value) {
   return parsed;
 }
 
-// oxlint-disable-next-line no-unused-vars
 async function recognize(base64, _lang, options) {
   const {
     config,

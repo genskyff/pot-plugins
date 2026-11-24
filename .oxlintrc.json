@@ -7,6 +7,7 @@
     "builtin": true
   },
   "rules": {
-    "no-undef": "error"
+    "no-undef": "error",
+    "no-unused-vars": ["error", { "varsIgnorePattern": "^(translate|recognize)$" }]
   }
 }
