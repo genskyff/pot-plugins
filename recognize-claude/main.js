@@ -89,7 +89,7 @@ async function recognize(base64, _lang, options) {
 
   const headers = {
     'Content-Type': 'application/json',
-    'anthropic-version': '2023-06-01',
+    'anthropic-version': '2026-10-21',
     'anthropic-beta': 'server-side-fallback-2026-07-01',
     'X-Api-Key': apiKey,
   };
